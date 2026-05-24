@@ -13,11 +13,17 @@ class Perceptron:
     # pesos         --> são os pesos do modelo. Cada entrada possui um peso.
     # vies          --> valor extra que ajuda o modelo a tomar a decisão final.
     #============================================================================================#
-    def __init__(self, learning_rate=0.1, n_epochs=10):
+    def __init__(self, learning_rate=0.1, n_epochs=10, pesos_iniciais=None, vies_inicial=0):
         self.learning_rate = learning_rate
         self.n_epochs = n_epochs
 
-        # Começam como None porque ainda serão criados no treinamento.
+        # pesos_iniciais --> permite definir uma estratégia diferente de inicialização
+        # para cada caso, como AND, OR e XOR.
+        self.pesos_iniciais = pesos_iniciais
+
+        # vies_inicial --> permite definir o valor inicial do viés para cada caso.
+        self.vies_inicial = vies_inicial
+
         self.pesos = None
         self.vies = None
 
@@ -39,17 +45,14 @@ class Perceptron:
         # n_colunas  -> quantidade de entradas em cada exemplo
         n_amostras, n_colunas = X.shape
 
-        # Cria um peso para cada coluna de entrada.
-        # No caso do AND, temos duas entradas, então teremos dois pesos.
-        self.pesos = np.zeros(n_colunas)
+        if self.pesos_iniciais is None:
+            self.pesos = np.zeros(n_colunas)
+        else:
+            self.pesos = np.array(self.pesos_iniciais, dtype=float)
 
-        # O viés começa em zero.
-        self.vies = 0
+        self.vies = self.vies_inicial
 
-        # Repete o treinamento várias vezes.
         for epoch in range(self.n_epochs):
-
-            # Passa por cada entrada do conjunto X.
             for indice, entrada_atual in enumerate(X):
 
                 # ======================================================#

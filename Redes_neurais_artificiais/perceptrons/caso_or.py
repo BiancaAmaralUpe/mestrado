@@ -21,7 +21,14 @@ def caso_or():
     # 1 OR 1 = 1
     y = np.array([0, 1, 1, 1])
 
-    modelo = Perceptron(learning_rate=0.1, n_epochs=10)
+    # modelo = Perceptron(learning_rate=0.1, n_epochs=10)
+
+    modelo = Perceptron(
+        learning_rate=0.1,
+        n_epochs=10,
+        pesos_iniciais=[0.1, 0.1],
+        vies_inicial=0
+    )
 
     # Treina o modelo
     modelo.fit(X, y)

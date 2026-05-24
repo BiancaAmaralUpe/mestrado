@@ -28,7 +28,14 @@ def caso_xor():
     # 1 XOR 1 = 0
     y = np.array([0, 1, 1, 0])
 
-    modelo = Perceptron(learning_rate=0.1, n_epochs=10)
+    # modelo = Perceptron(learning_rate=0.1, n_epochs=10)
+
+    modelo = Perceptron(
+        learning_rate=0.1,
+        n_epochs=10,
+        pesos_iniciais=[0.5, -0.5],
+        vies_inicial=0
+    )
 
     # Treina o modelo
     modelo.fit(X, y)
