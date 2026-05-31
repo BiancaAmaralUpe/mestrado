@@ -6,7 +6,8 @@ import torchvision
 import torchvision.transforms as transforms
 # pyrefly: ignore [missing-import]
 from torch.utils.data import DataLoader, random_split
-
+# pyrefly: ignore [missing-import]
+from ..constants import DATA_DIR
 # ======================================================================================== #
 # Responsável por carregar o MNIST e criar os DataLoaders
 # ======================================================================================== #
@@ -30,7 +31,7 @@ def carregar_dados_mnist(
     # Carrega o conjunto completo de TREINAMENTO do MNIST.
     # ======================================================================================== #
     conjunto_treino_completo = torchvision.datasets.MNIST(
-        root="./data",
+        root=str(DATA_DIR),
         train=True,
         transform=transformacao,
         download=True,
@@ -40,7 +41,7 @@ def carregar_dados_mnist(
     # Carrega o conjunto de TESTE do MNIST.
     # ======================================================================================== #
     conjunto_teste = torchvision.datasets.MNIST(
-        root="./data",
+        root=str(DATA_DIR),
         train=False,
         transform=transformacao,
         download=True,
