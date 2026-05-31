@@ -1,0 +1,119 @@
+
+================================================================================
+PRÁTICA XOR - PERCEPTRON SIMPLES VS MLP
+================================================================================
+
+Tabela do problema XOR
+--------------------------------------------------
+ x1  x2  XOR target
+0.0 0.0           0
+0.0 1.0           1
+1.0 0.0           1
+1.0 1.0           0
+
+Gerando gráfico dos pontos XOR...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\pontos_xor.png
+
+======================================================================
+===================TREINANDO PERCEPTRON SIMPLES======================
+======================================================================
+Treinamento do Perceptron simples finalizado.
+Melhor acurácia encontrada: 0.5000
+
+Histórico do Perceptron simples:
+----------------------------------------------------------------------
+ epoch  errors_in_epoch  accuracy_after_epoch
+     1                2                   0.5
+     2                4                   0.5
+     3                4                   0.5
+     4                4                   0.5
+     5                4                   0.5
+     6                4                   0.5
+     7                4                   0.5
+     8                4                   0.5
+     9                4                   0.5
+    10                4                   0.5
+    11                4                   0.5
+    12                4                   0.5
+    13                4                   0.5
+    14                4                   0.5
+    15                4                   0.5
+    16                4                   0.5
+    17                4                   0.5
+    18                4                   0.5
+    19                4                   0.5
+    20                4                   0.5
+
+Gerando gráfico do histórico do Perceptron...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\historico_perceptron.png
+
+======================================================================
+RESULTADOS DO PERCEPTRON SIMPLES
+======================================================================
+
+Melhores pesos encontrados: [0. 1.]
+Melhor bias encontrado: 0.0
+Acurácia do Perceptron: 0.5000
+
+Tabela de predições do Perceptron:
+----------------------------------------------------------------------
+ x1  x2  XOR target  Perceptron prediction  Correct?
+0.0 0.0           0                      1     False
+0.0 1.0           1                      1      True
+1.0 0.0           1                      1      True
+1.0 1.0           0                      1     False
+
+Gerando fronteira de decisão do Perceptron simples...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\fronteira_perceptron.png
+
+======================================================================
+======================TREINANDO MLP======================
+======================================================================
+Treinamento da MLP finalizado.
+
+======================================================================
+RESULTADOS DA MLP
+======================================================================
+
+Acurácia da MLP: 1.0000
+
+Tabela de predições da MLP:
+----------------------------------------------------------------------
+ x1  x2  XOR target  MLP probability class 1  MLP prediction  Correct?
+0.0 0.0           0                   0.0002               0      True
+0.0 1.0           1                   1.0000               1      True
+1.0 0.0           1                   0.9997               1      True
+1.0 1.0           0                   0.0001               0      True
+
+Gerando fronteira de decisão da MLP...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\fronteira_mlp.png
+
+Gerando representação da camada oculta da MLP...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\representacao_oculta_mlp.png
+
+Gerando matriz de confusão do Perceptron simples...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\matriz_confusao_perceptron.png
+
+Gerando matriz de confusão da MLP...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\pratica_xor\output-imagens\matriz_confusao_mlp.png
+
+======================================================================
+COMPARAÇÃO FINAL
+======================================================================
+            Modelo Fronteira de decisão  Acurácia Resolve XOR perfeitamente?
+Perceptron simples       Uma linha reta       0.5                        Não
+               MLP Fronteira não linear       1.0                        Sim
+
+======================================================================
+CONCLUSÃO
+======================================================================
+
+O Perceptron simples é um classificador linear. Por isso, ele só consegue criar uma fronteira de decisão em forma de linha reta.
+
+No problema XOR, as classes ficam distribuídas em diagonais opostas. Isso significa que não existe uma única reta capaz de separar perfeitamente as classes 0 e 1.
+
+A acurácia do Perceptron simples foi 0.5000, mostrando que ele não resolveu o XOR perfeitamente.
+
+A MLP conseguiu resolver o problema porque possui uma camada oculta com ativação não linear. Essa camada transforma o espaço de entrada, permitindo que a camada de saída consiga separar corretamente as classes.
+
+A acurácia da MLP foi 1.0000, indicando que ela resolveu corretamente os quatro casos do XOR.

@@ -1,0 +1,26 @@
+========================================================================================================================
+RESUMO FINAL DOS EXPERIMENTOS
+========================================================================================================================
+
+Experimento            Epochs   Batch    LR           ValSplit   Hidden   Loss             ValAcc     TestAcc    Gap       
+------------------------------------------------------------------------------------------------------------------------
+baseline               20       4096     0.001        0.1        100      cross_entropy    0.9383     0.9463     0.0012    
+epocas_10              10       4096     0.001        0.1        100      cross_entropy    0.9138     0.9194     0.0000    
+batch_256              20       256      0.001        0.1        100      cross_entropy    0.9715     0.9738     0.0188    
+lr_0001                20       4096     0.0001       0.1        100      cross_entropy    0.8507     0.8646     -0.0108   
+validacao_20           20       4096     0.001        0.2        100      cross_entropy    0.9334     0.9382     0.0023    
+mlp_maior              20       4096     0.001        0.1        256      cross_entropy    0.9495     0.9577     0.0036    
+loss_multimargin       20       4096     0.001        0.1        100      multi_margin     0.9337     0.9396     0.0025    
+
+========================================================================================================================
+LEGENDA
+========================================================================================================================
+Epochs   = quantidade de épocas usadas no treinamento.
+Batch    = tamanho do batch.
+LR       = learning rate, ou taxa de aprendizado.
+ValSplit = percentual do treino separado para validação.
+Hidden   = quantidade de neurônios na camada oculta da MLP.
+Loss     = função de perda usada no experimento.
+ValAcc   = melhor acurácia de validação.
+TestAcc  = acurácia no conjunto de teste.
+Gap      = diferença entre acurácia de treino e teste.

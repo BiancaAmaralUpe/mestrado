@@ -1,0 +1,768 @@
+Dispositivo usado: cpu
+GPU CUDA não disponível. O treinamento será executado na CPU.
+
+================================================================================
+INICIANDO EXPERIMENTO: baseline
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 14
+Quantidade de batches de validação: 2
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\baseline\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 1.9217 | Train acc: 57.64% | Val loss: 1.4228 | Val acc: 77.40%
+Época [02/20] Train loss: 1.1153 | Train acc: 80.30% | Val loss: 0.8091 | Val acc: 83.18%
+Época [03/20] Train loss: 0.6721 | Train acc: 84.87% | Val loss: 0.5573 | Val acc: 86.32%
+Época [04/20] Train loss: 0.4945 | Train acc: 87.42% | Val loss: 0.4513 | Val acc: 87.87%
+Época [05/20] Train loss: 0.4130 | Train acc: 89.01% | Val loss: 0.3952 | Val acc: 88.93%
+Época [06/20] Train loss: 0.3671 | Train acc: 90.04% | Val loss: 0.3609 | Val acc: 89.83%
+Época [07/20] Train loss: 0.3377 | Train acc: 90.78% | Val loss: 0.3374 | Val acc: 90.45%
+Época [08/20] Train loss: 0.3156 | Train acc: 91.27% | Val loss: 0.3197 | Val acc: 90.97%
+Época [09/20] Train loss: 0.2977 | Train acc: 91.74% | Val loss: 0.3039 | Val acc: 91.20%
+Época [10/20] Train loss: 0.2827 | Train acc: 92.18% | Val loss: 0.2906 | Val acc: 91.62%
+Época [11/20] Train loss: 0.2695 | Train acc: 92.53% | Val loss: 0.2784 | Val acc: 91.95%
+Época [12/20] Train loss: 0.2569 | Train acc: 92.89% | Val loss: 0.2683 | Val acc: 92.13%
+Época [13/20] Train loss: 0.2457 | Train acc: 93.18% | Val loss: 0.2582 | Val acc: 92.38%
+Época [14/20] Train loss: 0.2364 | Train acc: 93.45% | Val loss: 0.2493 | Val acc: 93.05%
+Época [15/20] Train loss: 0.2271 | Train acc: 93.74% | Val loss: 0.2425 | Val acc: 93.02%
+Época [16/20] Train loss: 0.2181 | Train acc: 94.06% | Val loss: 0.2328 | Val acc: 93.22%
+Época [17/20] Train loss: 0.2099 | Train acc: 94.20% | Val loss: 0.2259 | Val acc: 93.45%
+Época [18/20] Train loss: 0.2027 | Train acc: 94.37% | Val loss: 0.2207 | Val acc: 93.62%
+Época [19/20] Train loss: 0.1958 | Train acc: 94.61% | Val loss: 0.2147 | Val acc: 93.68%
+Época [20/20] Train loss: 0.1896 | Train acc: 94.75% | Val loss: 0.2091 | Val acc: 93.83%
+
+Treinamento finalizado em 96.86 segundos
+Melhor acurácia de validação: 93.83%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\baseline\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\baseline\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\baseline\best_mlp.pth
+Melhor acurácia de validação: 93.83%
+Época do melhor checkpoint: 20
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.1919
+Test accuracy: 94.63%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\baseline\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\baseline\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9463
+
+Matriz de confusão - teste:
+[[ 963    0    1    2    0    3    6    2    3    0]
+ [   0 1112    4    1    0    1    3    2   12    0]
+ [   7    1  961   17    5    3    7   10   18    3]
+ [   1    0   17  941    1   15    0   12   14    9]
+ [   1    1    4    0  936    0   10    3    5   22]
+ [   6    2    2   17    8  824   13    1   13    6]
+ [  11    3    2    2    8    9  919    1    3    0]
+ [   2    8   19    6    5    1    0  964    3   20]
+ [   4    4    5   15    9    9   11    9  903    5]
+ [   9    6    1   10   26    4    1    6    6  940]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9592    0.9827    0.9708       980
+     digit_1     0.9780    0.9797    0.9789      1135
+     digit_2     0.9459    0.9312    0.9385      1032
+     digit_3     0.9308    0.9317    0.9312      1010
+     digit_4     0.9379    0.9532    0.9455       982
+     digit_5     0.9482    0.9238    0.9358       892
+     digit_6     0.9474    0.9593    0.9533       958
+     digit_7     0.9545    0.9377    0.9460      1028
+     digit_8     0.9214    0.9271    0.9243       974
+     digit_9     0.9353    0.9316    0.9335      1009
+
+    accuracy                         0.9463     10000
+   macro avg     0.9459    0.9458    0.9458     10000
+weighted avg     0.9463    0.9463    0.9463     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9475
+Acurácia teste:       0.9463
+Diferença:            0.0012
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: epocas_10
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 14
+Quantidade de batches de validação: 2
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\epocas_10\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/10] Train loss: 1.9428 | Train acc: 53.95% | Val loss: 1.4471 | Val acc: 78.52%
+Época [02/10] Train loss: 1.1397 | Train acc: 80.40% | Val loss: 0.8259 | Val acc: 82.85%
+Época [03/10] Train loss: 0.6912 | Train acc: 84.30% | Val loss: 0.5666 | Val acc: 85.87%
+Época [04/10] Train loss: 0.5069 | Train acc: 87.14% | Val loss: 0.4555 | Val acc: 88.10%
+Época [05/10] Train loss: 0.4230 | Train acc: 88.88% | Val loss: 0.3992 | Val acc: 89.25%
+Época [06/10] Train loss: 0.3761 | Train acc: 89.86% | Val loss: 0.3647 | Val acc: 89.93%
+Época [07/10] Train loss: 0.3458 | Train acc: 90.58% | Val loss: 0.3417 | Val acc: 90.62%
+Época [08/10] Train loss: 0.3240 | Train acc: 91.11% | Val loss: 0.3240 | Val acc: 90.77%
+Época [09/10] Train loss: 0.3075 | Train acc: 91.58% | Val loss: 0.3115 | Val acc: 91.03%
+Época [10/10] Train loss: 0.2937 | Train acc: 91.94% | Val loss: 0.3011 | Val acc: 91.38%
+
+Treinamento finalizado em 46.79 segundos
+Melhor acurácia de validação: 91.38%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\epocas_10\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\epocas_10\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\epocas_10\best_mlp.pth
+Melhor acurácia de validação: 91.38%
+Época do melhor checkpoint: 10
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.2857
+Test accuracy: 91.94%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\epocas_10\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\epocas_10\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9194
+
+Matriz de confusão - teste:
+[[ 961    0    0    1    0    7    6    1    4    0]
+ [   0 1110    3    2    1    3    4    1   11    0]
+ [   9    5  913   19   14    4    8   14   42    4]
+ [   3    2   19  907    1   34    2   15   21    6]
+ [   1    1    4    1  928    0   13    2    8   24]
+ [  10    2    4   26   11  784   12    7   31    5]
+ [  13    3    4    0   10   21  902    2    3    0]
+ [   2   11   22    8   10    0    0  944    3   28]
+ [   8    6    7   21   10   26   11   14  862    9]
+ [  11    6    2   13   49    8    0   31    6  883]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9440    0.9806    0.9620       980
+     digit_1     0.9686    0.9780    0.9733      1135
+     digit_2     0.9335    0.8847    0.9085      1032
+     digit_3     0.9088    0.8980    0.9034      1010
+     digit_4     0.8975    0.9450    0.9206       982
+     digit_5     0.8839    0.8789    0.8814       892
+     digit_6     0.9415    0.9415    0.9415       958
+     digit_7     0.9156    0.9183    0.9169      1028
+     digit_8     0.8698    0.8850    0.8774       974
+     digit_9     0.9208    0.8751    0.8974      1009
+
+    accuracy                         0.9194     10000
+   macro avg     0.9184    0.9185    0.9182     10000
+weighted avg     0.9195    0.9194    0.9192     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9194
+Acurácia teste:       0.9194
+Diferença:            0.0000
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: batch_256
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 211
+Quantidade de batches de validação: 24
+Quantidade de batches de teste: 40
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\batch_256\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 0.5795 | Train acc: 85.96% | Val loss: 0.3093 | Val acc: 91.07%
+Época [02/20] Train loss: 0.2575 | Train acc: 92.78% | Val loss: 0.2428 | Val acc: 93.10%
+Época [03/20] Train loss: 0.2035 | Train acc: 94.24% | Val loss: 0.2045 | Val acc: 94.07%
+Época [04/20] Train loss: 0.1679 | Train acc: 95.24% | Val loss: 0.1814 | Val acc: 94.88%
+Época [05/20] Train loss: 0.1434 | Train acc: 95.94% | Val loss: 0.1657 | Val acc: 94.87%
+Época [06/20] Train loss: 0.1241 | Train acc: 96.46% | Val loss: 0.1490 | Val acc: 95.50%
+Época [07/20] Train loss: 0.1081 | Train acc: 96.90% | Val loss: 0.1399 | Val acc: 95.85%
+Época [08/20] Train loss: 0.0952 | Train acc: 97.27% | Val loss: 0.1320 | Val acc: 96.17%
+Época [09/20] Train loss: 0.0849 | Train acc: 97.58% | Val loss: 0.1277 | Val acc: 96.17%
+Época [10/20] Train loss: 0.0762 | Train acc: 97.80% | Val loss: 0.1208 | Val acc: 96.55%
+Época [11/20] Train loss: 0.0690 | Train acc: 98.05% | Val loss: 0.1149 | Val acc: 96.63%
+Época [12/20] Train loss: 0.0621 | Train acc: 98.27% | Val loss: 0.1101 | Val acc: 96.70%
+Época [13/20] Train loss: 0.0572 | Train acc: 98.37% | Val loss: 0.1106 | Val acc: 96.57%
+Época [14/20] Train loss: 0.0517 | Train acc: 98.53% | Val loss: 0.1032 | Val acc: 96.97%
+Época [15/20] Train loss: 0.0469 | Train acc: 98.69% | Val loss: 0.1033 | Val acc: 96.87%
+Época [16/20] Train loss: 0.0431 | Train acc: 98.81% | Val loss: 0.0995 | Val acc: 97.15%
+Época [17/20] Train loss: 0.0393 | Train acc: 98.94% | Val loss: 0.1008 | Val acc: 97.07%
+Época [18/20] Train loss: 0.0356 | Train acc: 99.06% | Val loss: 0.1015 | Val acc: 96.93%
+Época [19/20] Train loss: 0.0327 | Train acc: 99.17% | Val loss: 0.0992 | Val acc: 97.08%
+Época [20/20] Train loss: 0.0294 | Train acc: 99.26% | Val loss: 0.0975 | Val acc: 97.13%
+
+Treinamento finalizado em 98.32 segundos
+Melhor acurácia de validação: 97.15%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\batch_256\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\batch_256\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\batch_256\best_mlp.pth
+Melhor acurácia de validação: 97.15%
+Época do melhor checkpoint: 16
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.0831
+Test accuracy: 97.38%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\batch_256\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\batch_256\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9738
+
+Matriz de confusão - teste:
+[[ 968    0    1    1    2    3    3    1    1    0]
+ [   0 1123    3    1    0    1    3    1    3    0]
+ [   5    3  997    5    2    1    4    7    8    0]
+ [   0    0    3  988    0    3    0    7    7    2]
+ [   0    0    3    0  957    0    8    4    1    9]
+ [   2    2    0   13    1  860    7    0    6    1]
+ [   6    3    3    0    3    6  934    0    3    0]
+ [   1    5   10    4    2    0    0 1000    0    6]
+ [   2    0    3   10    6    3    2    6  941    1]
+ [   4    5    0    7   10    2    1    5    5  970]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9798    0.9878    0.9837       980
+     digit_1     0.9842    0.9894    0.9868      1135
+     digit_2     0.9746    0.9661    0.9703      1032
+     digit_3     0.9602    0.9782    0.9691      1010
+     digit_4     0.9736    0.9745    0.9740       982
+     digit_5     0.9784    0.9641    0.9712       892
+     digit_6     0.9709    0.9749    0.9729       958
+     digit_7     0.9699    0.9728    0.9713      1028
+     digit_8     0.9651    0.9661    0.9656       974
+     digit_9     0.9808    0.9613    0.9710      1009
+
+    accuracy                         0.9738     10000
+   macro avg     0.9737    0.9735    0.9736     10000
+weighted avg     0.9738    0.9738    0.9738     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9926
+Acurácia teste:       0.9738
+Diferença:            0.0188
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: lr_0001
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 14
+Quantidade de batches de validação: 2
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\lr_0001\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 2.2776 | Train acc: 12.36% | Val loss: 2.2318 | Val acc: 28.25%
+Época [02/20] Train loss: 2.1968 | Train acc: 42.64% | Val loss: 2.1470 | Val acc: 58.35%
+Época [03/20] Train loss: 2.1074 | Train acc: 62.31% | Val loss: 2.0500 | Val acc: 67.37%
+Época [04/20] Train loss: 2.0059 | Train acc: 68.26% | Val loss: 1.9427 | Val acc: 69.90%
+Época [05/20] Train loss: 1.8962 | Train acc: 70.77% | Val loss: 1.8300 | Val acc: 72.03%
+Época [06/20] Train loss: 1.7826 | Train acc: 72.68% | Val loss: 1.7167 | Val acc: 73.83%
+Época [07/20] Train loss: 1.6705 | Train acc: 74.43% | Val loss: 1.6069 | Val acc: 75.53%
+Época [08/20] Train loss: 1.5627 | Train acc: 76.42% | Val loss: 1.5025 | Val acc: 77.55%
+Época [09/20] Train loss: 1.4605 | Train acc: 77.91% | Val loss: 1.4042 | Val acc: 78.77%
+Época [10/20] Train loss: 1.3646 | Train acc: 79.20% | Val loss: 1.3131 | Val acc: 79.93%
+Época [11/20] Train loss: 1.2762 | Train acc: 80.33% | Val loss: 1.2292 | Val acc: 80.98%
+Época [12/20] Train loss: 1.1952 | Train acc: 81.15% | Val loss: 1.1531 | Val acc: 81.67%
+Época [13/20] Train loss: 1.1216 | Train acc: 81.84% | Val loss: 1.0842 | Val acc: 82.27%
+Época [14/20] Train loss: 1.0551 | Train acc: 82.45% | Val loss: 1.0217 | Val acc: 82.82%
+Época [15/20] Train loss: 0.9947 | Train acc: 83.07% | Val loss: 0.9650 | Val acc: 83.20%
+Época [16/20] Train loss: 0.9399 | Train acc: 83.59% | Val loss: 0.9138 | Val acc: 83.62%
+Época [17/20] Train loss: 0.8902 | Train acc: 84.16% | Val loss: 0.8672 | Val acc: 84.05%
+Época [18/20] Train loss: 0.8453 | Train acc: 84.57% | Val loss: 0.8251 | Val acc: 84.30%
+Época [19/20] Train loss: 0.8047 | Train acc: 85.02% | Val loss: 0.7874 | Val acc: 84.78%
+Época [20/20] Train loss: 0.7683 | Train acc: 85.38% | Val loss: 0.7533 | Val acc: 85.07%
+
+Treinamento finalizado em 93.96 segundos
+Melhor acurácia de validação: 85.07%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\lr_0001\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\lr_0001\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\lr_0001\best_mlp.pth
+Melhor acurácia de validação: 85.07%
+Época do melhor checkpoint: 20
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.7283
+Test accuracy: 86.46%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\lr_0001\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\lr_0001\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.8646
+
+Matriz de confusão - teste:
+[[ 930    0    3    6    0    6   22    1   12    0]
+ [   0 1098    1    5    0    2    4    0   25    0]
+ [  16   21  853   32   14    0   27   22   46    1]
+ [   3    6   34  882    0   17    5   25   29    9]
+ [   3   11    4    0  865    1   17    2    7   72]
+ [  18   14   11   95   26  616   22   10   64   16]
+ [  20    9   11    0    8   17  888    0    5    0]
+ [   1   39   19    4   10    0    2  887   11   55]
+ [  15   33   12   42   18   21   12   19  782   20]
+ [  16   16    4   10   53    6    1   50    8  845]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9100    0.9490    0.9291       980
+     digit_1     0.8805    0.9674    0.9219      1135
+     digit_2     0.8960    0.8266    0.8599      1032
+     digit_3     0.8197    0.8733    0.8456      1010
+     digit_4     0.8702    0.8809    0.8755       982
+     digit_5     0.8980    0.6906    0.7807       892
+     digit_6     0.8880    0.9269    0.9070       958
+     digit_7     0.8730    0.8628    0.8679      1028
+     digit_8     0.7907    0.8029    0.7967       974
+     digit_9     0.8301    0.8375    0.8337      1009
+
+    accuracy                         0.8646     10000
+   macro avg     0.8656    0.8618    0.8618     10000
+weighted avg     0.8655    0.8646    0.8633     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.8538
+Acurácia teste:       0.8646
+Diferença:            -0.0108
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: validacao_20
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 12
+Quantidade de batches de validação: 3
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\validacao_20\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 2.0097 | Train acc: 51.27% | Val loss: 1.6212 | Val acc: 72.87%
+Época [02/20] Train loss: 1.3152 | Train acc: 77.94% | Val loss: 0.9986 | Val acc: 81.02%
+Época [03/20] Train loss: 0.8157 | Train acc: 83.33% | Val loss: 0.6644 | Val acc: 84.48%
+Época [04/20] Train loss: 0.5747 | Train acc: 86.20% | Val loss: 0.5136 | Val acc: 87.13%
+Época [05/20] Train loss: 0.4613 | Train acc: 88.15% | Val loss: 0.4378 | Val acc: 88.31%
+Época [06/20] Train loss: 0.4004 | Train acc: 89.40% | Val loss: 0.3937 | Val acc: 89.29%
+Época [07/20] Train loss: 0.3626 | Train acc: 90.15% | Val loss: 0.3658 | Val acc: 89.81%
+Época [08/20] Train loss: 0.3367 | Train acc: 90.78% | Val loss: 0.3442 | Val acc: 90.46%
+Época [09/20] Train loss: 0.3169 | Train acc: 91.32% | Val loss: 0.3279 | Val acc: 90.82%
+Época [10/20] Train loss: 0.3011 | Train acc: 91.69% | Val loss: 0.3159 | Val acc: 91.13%
+Época [11/20] Train loss: 0.2882 | Train acc: 92.01% | Val loss: 0.3050 | Val acc: 91.36%
+Época [12/20] Train loss: 0.2770 | Train acc: 92.29% | Val loss: 0.2942 | Val acc: 91.78%
+Época [13/20] Train loss: 0.2662 | Train acc: 92.62% | Val loss: 0.2859 | Val acc: 91.96%
+Época [14/20] Train loss: 0.2572 | Train acc: 92.87% | Val loss: 0.2784 | Val acc: 92.26%
+Época [15/20] Train loss: 0.2483 | Train acc: 93.14% | Val loss: 0.2696 | Val acc: 92.45%
+Época [16/20] Train loss: 0.2402 | Train acc: 93.38% | Val loss: 0.2631 | Val acc: 92.58%
+Época [17/20] Train loss: 0.2327 | Train acc: 93.60% | Val loss: 0.2558 | Val acc: 92.86%
+Época [18/20] Train loss: 0.2262 | Train acc: 93.77% | Val loss: 0.2510 | Val acc: 92.98%
+Época [19/20] Train loss: 0.2195 | Train acc: 93.97% | Val loss: 0.2443 | Val acc: 93.20%
+Época [20/20] Train loss: 0.2135 | Train acc: 94.05% | Val loss: 0.2390 | Val acc: 93.34%
+
+Treinamento finalizado em 94.71 segundos
+Melhor acurácia de validação: 93.34%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\validacao_20\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\validacao_20\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\validacao_20\best_mlp.pth
+Melhor acurácia de validação: 93.34%
+Época do melhor checkpoint: 20
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.2161
+Test accuracy: 93.82%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\validacao_20\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\validacao_20\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9382
+
+Matriz de confusão - teste:
+[[ 960    0    0    1    0    3    9    3    4    0]
+ [   0 1112    3    2    1    1    3    2   11    0]
+ [   7    1  947   14    8    2   10   10   30    3]
+ [   1    1   18  933    0   17    1   13   21    5]
+ [   1    1    6    0  928    1   11    3    4   27]
+ [   6    3    2   23    7  806   12    6   20    7]
+ [  11    3    6    0    9   14  912    0    3    0]
+ [   2    8   19    5    5    1    0  963    2   23]
+ [   3    5    6   16   10   13    9   10  896    6]
+ [   8    7    1   12   28    7    1   14    6  925]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9610    0.9796    0.9702       980
+     digit_1     0.9746    0.9797    0.9772      1135
+     digit_2     0.9395    0.9176    0.9284      1032
+     digit_3     0.9274    0.9238    0.9256      1010
+     digit_4     0.9317    0.9450    0.9383       982
+     digit_5     0.9318    0.9036    0.9175       892
+     digit_6     0.9421    0.9520    0.9470       958
+     digit_7     0.9404    0.9368    0.9386      1028
+     digit_8     0.8987    0.9199    0.9092       974
+     digit_9     0.9287    0.9167    0.9227      1009
+
+    accuracy                         0.9382     10000
+   macro avg     0.9376    0.9375    0.9375     10000
+weighted avg     0.9382    0.9382    0.9381     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9405
+Acurácia teste:       0.9382
+Diferença:            0.0023
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: mlp_maior
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 14
+Quantidade de batches de validação: 2
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\mlp_maior\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=256, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=256, out_features=10, bias=True)
+)
+Parâmetros treináveis: 203,530
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 1.7391 | Train acc: 67.69% | Val loss: 1.0535 | Val acc: 80.90%
+Época [02/20] Train loss: 0.7643 | Train acc: 83.71% | Val loss: 0.5420 | Val acc: 86.08%
+Época [03/20] Train loss: 0.4607 | Train acc: 87.68% | Val loss: 0.4058 | Val acc: 88.82%
+Época [04/20] Train loss: 0.3683 | Train acc: 89.70% | Val loss: 0.3514 | Val acc: 89.85%
+Época [05/20] Train loss: 0.3247 | Train acc: 90.86% | Val loss: 0.3199 | Val acc: 90.83%
+Época [06/20] Train loss: 0.2977 | Train acc: 91.71% | Val loss: 0.2997 | Val acc: 91.23%
+Época [07/20] Train loss: 0.2758 | Train acc: 92.32% | Val loss: 0.2822 | Val acc: 91.95%
+Época [08/20] Train loss: 0.2585 | Train acc: 92.77% | Val loss: 0.2669 | Val acc: 92.53%
+Época [09/20] Train loss: 0.2430 | Train acc: 93.29% | Val loss: 0.2538 | Val acc: 92.85%
+Época [10/20] Train loss: 0.2294 | Train acc: 93.64% | Val loss: 0.2409 | Val acc: 93.13%
+Época [11/20] Train loss: 0.2162 | Train acc: 94.04% | Val loss: 0.2304 | Val acc: 93.30%
+Época [12/20] Train loss: 0.2051 | Train acc: 94.29% | Val loss: 0.2198 | Val acc: 93.67%
+Época [13/20] Train loss: 0.1942 | Train acc: 94.63% | Val loss: 0.2100 | Val acc: 93.93%
+Época [14/20] Train loss: 0.1841 | Train acc: 94.89% | Val loss: 0.2052 | Val acc: 94.02%
+Época [15/20] Train loss: 0.1767 | Train acc: 95.08% | Val loss: 0.1959 | Val acc: 94.38%
+Época [16/20] Train loss: 0.1682 | Train acc: 95.34% | Val loss: 0.1892 | Val acc: 94.48%
+Época [17/20] Train loss: 0.1597 | Train acc: 95.56% | Val loss: 0.1840 | Val acc: 94.53%
+Época [18/20] Train loss: 0.1530 | Train acc: 95.71% | Val loss: 0.1780 | Val acc: 94.72%
+Época [19/20] Train loss: 0.1473 | Train acc: 95.91% | Val loss: 0.1727 | Val acc: 94.85%
+Época [20/20] Train loss: 0.1404 | Train acc: 96.13% | Val loss: 0.1684 | Val acc: 94.95%
+
+Treinamento finalizado em 88.51 segundos
+Melhor acurácia de validação: 94.95%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\mlp_maior\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\mlp_maior\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\mlp_maior\best_mlp.pth
+Melhor acurácia de validação: 94.95%
+Época do melhor checkpoint: 20
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.1501
+Test accuracy: 95.77%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\mlp_maior\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\mlp_maior\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9577
+
+Matriz de confusão - teste:
+[[ 967    0    1    1    0    3    5    2    1    0]
+ [   0 1115    3    2    1    1    3    2    8    0]
+ [   5    1  980   11    4    1    5   11   14    0]
+ [   0    0    6  974    1    7    0   10    8    4]
+ [   1    1    4    0  945    0    9    3    2   17]
+ [   5    1    0   15    3  841   11    2    8    6]
+ [   8    3    2    1    7   10  924    0    3    0]
+ [   1    7   11    6    2    1    0  988    2   10]
+ [   3    2    6   20    9    6    9   11  904    4]
+ [   8    6    1   16   20    6    1   10    2  939]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9689    0.9867    0.9778       980
+     digit_1     0.9815    0.9824    0.9819      1135
+     digit_2     0.9665    0.9496    0.9580      1032
+     digit_3     0.9312    0.9644    0.9475      1010
+     digit_4     0.9526    0.9623    0.9574       982
+     digit_5     0.9600    0.9428    0.9514       892
+     digit_6     0.9555    0.9645    0.9600       958
+     digit_7     0.9509    0.9611    0.9560      1028
+     digit_8     0.9496    0.9281    0.9387       974
+     digit_9     0.9582    0.9306    0.9442      1009
+
+    accuracy                         0.9577     10000
+   macro avg     0.9575    0.9573    0.9573     10000
+weighted avg     0.9578    0.9577    0.9577     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9613
+Acurácia teste:       0.9577
+Diferença:            0.0036
+
+A diferença entre treino e teste não está excessivamente alta.
+
+================================================================================
+INICIANDO EXPERIMENTO: loss_multimargin
+================================================================================
+
+Carregando dados MNIST...
+Quantidade de batches de treino: 14
+Quantidade de batches de validação: 2
+Quantidade de batches de teste: 3
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\loss_multimargin\exemplos_mnist.png
+
+Criando modelo MLP...
+ModeloMLP(
+  (camada_oculta): Linear(in_features=784, out_features=100, bias=True)
+  (funcao_ativacao): ReLU()
+  (camada_classificacao): Linear(in_features=100, out_features=10, bias=True)
+)
+Parâmetros treináveis: 79,510
+
+==============Iniciando treinamento===============
+Época [01/20] Train loss: 0.5664 | Train acc: 56.20% | Val loss: 0.2174 | Val acc: 77.02%
+Época [02/20] Train loss: 0.1483 | Train acc: 81.01% | Val loss: 0.1009 | Val acc: 83.23%
+Época [03/20] Train loss: 0.0862 | Train acc: 85.63% | Val loss: 0.0737 | Val acc: 86.78%
+Época [04/20] Train loss: 0.0674 | Train acc: 88.12% | Val loss: 0.0619 | Val acc: 88.23%
+Época [05/20] Train loss: 0.0579 | Train acc: 89.34% | Val loss: 0.0552 | Val acc: 89.20%
+Época [06/20] Train loss: 0.0523 | Train acc: 90.24% | Val loss: 0.0508 | Val acc: 90.00%
+Época [07/20] Train loss: 0.0482 | Train acc: 90.90% | Val loss: 0.0474 | Val acc: 90.48%
+Época [08/20] Train loss: 0.0450 | Train acc: 91.33% | Val loss: 0.0449 | Val acc: 90.90%
+Época [09/20] Train loss: 0.0423 | Train acc: 91.75% | Val loss: 0.0426 | Val acc: 91.42%
+Época [10/20] Train loss: 0.0402 | Train acc: 92.07% | Val loss: 0.0407 | Val acc: 91.67%
+Época [11/20] Train loss: 0.0382 | Train acc: 92.32% | Val loss: 0.0392 | Val acc: 92.00%
+Época [12/20] Train loss: 0.0365 | Train acc: 92.61% | Val loss: 0.0378 | Val acc: 92.15%
+Época [13/20] Train loss: 0.0350 | Train acc: 92.79% | Val loss: 0.0366 | Val acc: 92.22%
+Época [14/20] Train loss: 0.0335 | Train acc: 93.03% | Val loss: 0.0354 | Val acc: 92.50%
+Época [15/20] Train loss: 0.0322 | Train acc: 93.22% | Val loss: 0.0343 | Val acc: 92.72%
+Época [16/20] Train loss: 0.0310 | Train acc: 93.49% | Val loss: 0.0333 | Val acc: 92.85%
+Época [17/20] Train loss: 0.0298 | Train acc: 93.70% | Val loss: 0.0325 | Val acc: 93.17%
+Época [18/20] Train loss: 0.0287 | Train acc: 93.88% | Val loss: 0.0316 | Val acc: 93.22%
+Época [19/20] Train loss: 0.0278 | Train acc: 94.12% | Val loss: 0.0309 | Val acc: 93.37%
+Época [20/20] Train loss: 0.0269 | Train acc: 94.21% | Val loss: 0.0301 | Val acc: 93.35%
+
+Treinamento finalizado em 87.10 segundos
+Melhor acurácia de validação: 93.37%
+
+Gerando gráficos de treinamento...
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\loss_multimargin\historico_loss.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\loss_multimargin\historico_acuracia.png
+
+Carregando melhor modelo salvo...
+Checkpoint carregado de: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\checkpoints\loss_multimargin\best_mlp.pth
+Melhor acurácia de validação: 93.37%
+Época do melhor checkpoint: 19
+
+Avaliando modelo no conjunto de teste...
+Test loss: 0.0289
+Test accuracy: 93.96%
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\loss_multimargin\matriz_confusao.png
+Imagem salva em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\pratica_mlp\output-imagens\loss_multimargin\predicoes_modelo.png
+
+======================================================================
+AVALIAÇÃO FINAL - MLP COM PYTORCH
+======================================================================
+
+----------------------------------------------------------------------
+DESEMPENHO NO CONJUNTO DE TESTE
+----------------------------------------------------------------------
+
+Acurácia no teste:
+0.9396
+
+Matriz de confusão - teste:
+[[ 961    0    1    2    0    4    9    2    1    0]
+ [   0 1114    3    1    0    1    3    1   11    1]
+ [   7    2  951   16   12    3    6    7   26    2]
+ [   2    1    9  940    1   17    2   12   21    5]
+ [   1    0    5    0  936    0   12    3    4   21]
+ [   6    2    0   33    8  799   11    2   25    6]
+ [  10    3    6    0    8   12  916    0    3    0]
+ [   2    5   24    4    5    1    0  955    7   25]
+ [   5    3    7   21    9   14    8    6  896    5]
+ [   8    6    2   13   29    5    1   10    7  928]]
+
+Relatório de classificação - teste:
+              precision    recall  f1-score   support
+
+     digit_0     0.9591    0.9806    0.9697       980
+     digit_1     0.9806    0.9815    0.9811      1135
+     digit_2     0.9435    0.9215    0.9324      1032
+     digit_3     0.9126    0.9307    0.9216      1010
+     digit_4     0.9286    0.9532    0.9407       982
+     digit_5     0.9334    0.8957    0.9142       892
+     digit_6     0.9463    0.9562    0.9512       958
+     digit_7     0.9569    0.9290    0.9427      1028
+     digit_8     0.8951    0.9199    0.9073       974
+     digit_9     0.9345    0.9197    0.9271      1009
+
+    accuracy                         0.9396     10000
+   macro avg     0.9391    0.9388    0.9388     10000
+weighted avg     0.9398    0.9396    0.9396     10000
+
+
+----------------------------------------------------------------------
+COMPARAÇÃO TREINO X TESTE
+----------------------------------------------------------------------
+Acurácia treinamento: 0.9421
+Acurácia teste:       0.9396
+Diferença:            0.0025
+
+A diferença entre treino e teste não está excessivamente alta.
+
+========================================================================================================================
+RESUMO FINAL DOS EXPERIMENTOS
+========================================================================================================================
+Experimento            Epochs   Batch    LR           ValSplit   Hidden   Loss             ValAcc     TestAcc    Gap       
+------------------------------------------------------------------------------------------------------------------------
+baseline               20       4096     0.001        0.1        100      cross_entropy    0.9383     0.9463     0.0012    
+epocas_10              10       4096     0.001        0.1        100      cross_entropy    0.9138     0.9194     0.0000    
+batch_256              20       256      0.001        0.1        100      cross_entropy    0.9715     0.9738     0.0188    
+lr_0001                20       4096     0.0001       0.1        100      cross_entropy    0.8507     0.8646     -0.0108   
+validacao_20           20       4096     0.001        0.2        100      cross_entropy    0.9334     0.9382     0.0023    
+mlp_maior              20       4096     0.001        0.1        256      cross_entropy    0.9495     0.9577     0.0036    
+loss_multimargin       20       4096     0.001        0.1        100      multi_margin     0.9337     0.9396     0.0025    
