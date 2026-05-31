@@ -1,4 +1,3 @@
-
 # pyrefly: ignore [missing-import]
 import numpy as np
 
@@ -8,11 +7,35 @@ import torch
 # pyrefly: ignore [missing-import]
 import matplotlib.pyplot as plt
 
+# pyrefly: ignore [missing-import]
+from .constants import OUTPUT_IMAGENS_DIR
+
+
 # ======================================================================================== #
-# vai ficar responsável somente pelos gráficos e visualizações
+# Responsável somente pelos gráficos e visualizações.
 # ======================================================================================== #
 
-def mostrar_exemplos_mnist(data_loader, quantidade_imagens: int = 16):
+def obter_diretorio_saida(diretorio_saida=None):
+    """
+    Define onde as imagens serão salvas.
+
+    Se um diretório específico for informado, usa esse diretório.
+    Caso contrário, usa o diretório padrão OUTPUT_IMAGENS_DIR.
+    """
+
+    if diretorio_saida is None:
+        diretorio_saida = OUTPUT_IMAGENS_DIR
+
+    diretorio_saida.mkdir(parents=True, exist_ok=True)
+
+    return diretorio_saida
+
+
+def mostrar_exemplos_mnist(
+    data_loader,
+    quantidade_imagens: int = 16,
+    diretorio_saida=None,
+):
     """
     Mostra algumas imagens do dataset MNIST com seus respectivos rótulos reais.
 
@@ -21,6 +44,8 @@ def mostrar_exemplos_mnist(data_loader, quantidade_imagens: int = 16):
         - os rótulos estão corretos;
         - o formato dos dados faz sentido.
     """
+
+    diretorio_saida = obter_diretorio_saida(diretorio_saida)
 
     imagens, rotulos = next(iter(data_loader))
 
@@ -43,10 +68,19 @@ def mostrar_exemplos_mnist(data_loader, quantidade_imagens: int = 16):
 
     plt.suptitle("Exemplos do MNIST", fontsize=14)
     plt.tight_layout()
+
+    caminho_imagem = diretorio_saida / "exemplos_mnist.png"
+    plt.savefig(caminho_imagem, dpi=300, bbox_inches="tight")
+    print(f"Imagem salva em: {caminho_imagem}")
+
     plt.show()
+    plt.close()
 
 
-def plotar_historico_treinamento(historico: dict):
+def plotar_historico_treinamento(
+    historico: dict,
+    diretorio_saida=None,
+):
     """
     Plota os gráficos de loss e acurácia durante o treinamento.
 
@@ -63,11 +97,13 @@ def plotar_historico_treinamento(historico: dict):
         - se há indícios de overfitting.
     """
 
+    diretorio_saida = obter_diretorio_saida(diretorio_saida)
+
     epocas = range(1, len(historico["train_loss"]) + 1)
 
-    # ========================================================================================
+    # ======================================================================================== #
     # Gráfico de loss.
-    # ========================================================================================
+    # ======================================================================================== #
     plt.figure(figsize=(8, 5))
     plt.plot(epocas, historico["train_loss"], marker="o", label="Loss de treino")
     plt.plot(epocas, historico["val_loss"], marker="o", label="Loss de validação")
@@ -76,11 +112,17 @@ def plotar_historico_treinamento(historico: dict):
     plt.title("Loss da MLP durante o treinamento")
     plt.legend()
     plt.grid(True)
-    plt.show()
 
-    # ========================================================================================
+    caminho_imagem_loss = diretorio_saida / "historico_loss.png"
+    plt.savefig(caminho_imagem_loss, dpi=300, bbox_inches="tight")
+    print(f"Imagem salva em: {caminho_imagem_loss}")
+
+    plt.show()
+    plt.close()
+
+    # ======================================================================================== #
     # Gráfico de acurácia.
-    # ========================================================================================
+    # ======================================================================================== #
     plt.figure(figsize=(8, 5))
     plt.plot(epocas, historico["train_accuracy"], marker="o", label="Acurácia de treino")
     plt.plot(epocas, historico["val_accuracy"], marker="o", label="Acurácia de validação")
@@ -89,10 +131,20 @@ def plotar_historico_treinamento(historico: dict):
     plt.title("Acurácia da MLP durante o treinamento")
     plt.legend()
     plt.grid(True)
+
+    caminho_imagem_acuracia = diretorio_saida / "historico_acuracia.png"
+    plt.savefig(caminho_imagem_acuracia, dpi=300, bbox_inches="tight")
+    print(f"Imagem salva em: {caminho_imagem_acuracia}")
+
     plt.show()
+    plt.close()
 
 
-def plotar_matriz_confusao(matriz_confusao, nomes_classes):
+def plotar_matriz_confusao(
+    matriz_confusao,
+    nomes_classes,
+    diretorio_saida=None,
+):
     """
     Plota a matriz de confusão.
 
@@ -106,6 +158,8 @@ def plotar_matriz_confusao(matriz_confusao, nomes_classes):
     Colunas:
         representam os rótulos previstos pelo modelo.
     """
+
+    diretorio_saida = obter_diretorio_saida(diretorio_saida)
 
     plt.figure(figsize=(8, 7))
     plt.imshow(matriz_confusao, interpolation="nearest")
@@ -138,7 +192,13 @@ def plotar_matriz_confusao(matriz_confusao, nomes_classes):
             )
 
     plt.tight_layout()
+
+    caminho_imagem = diretorio_saida / "matriz_confusao.png"
+    plt.savefig(caminho_imagem, dpi=300, bbox_inches="tight")
+    print(f"Imagem salva em: {caminho_imagem}")
+
     plt.show()
+    plt.close()
 
 
 @torch.no_grad()
@@ -147,19 +207,16 @@ def mostrar_predicoes_modelo(
     data_loader,
     dispositivo: torch.device,
     quantidade_imagens: int = 16,
+    diretorio_saida=None,
 ):
     """
     Mostra algumas imagens do conjunto de teste com:
 
         T: rótulo real
         P: rótulo previsto pelo modelo
-
-    Exemplo:
-        T: 7 | P: 7
-
-    Isso significa:
-        o rótulo real era 7 e o modelo também previu 7.
     """
+
+    diretorio_saida = obter_diretorio_saida(diretorio_saida)
 
     modelo.eval()
 
@@ -189,4 +246,10 @@ def mostrar_predicoes_modelo(
 
     plt.suptitle("Predições da MLP no conjunto de teste", fontsize=14)
     plt.tight_layout()
+
+    caminho_imagem = diretorio_saida / "predicoes_modelo.png"
+    plt.savefig(caminho_imagem, dpi=300, bbox_inches="tight")
+    print(f"Imagem salva em: {caminho_imagem}")
+
     plt.show()
+    plt.close()

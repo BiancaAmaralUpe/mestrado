@@ -1,5 +1,5 @@
 # pyrefly: ignore [missing-import]
-from carregar_dados_mnist.geracao_graficos import mostrar_exemplos_mnist
+from .graficos_dados import mostrar_exemplos_mnist
 # ========================================================================================
 # Visualização inicial dos dados.
 # ========================================================================================

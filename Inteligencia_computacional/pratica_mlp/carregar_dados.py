@@ -1,4 +1,6 @@
-from carregar_dados_mnist.dados_mnist import carregar_dados_mnist
+# pyrefly: ignore [missing-import]
+from .carregar_dados_mnist.dados_mnist import carregar_dados_mnist
+
 
 def executar_carregamento_dados(
     tamanho_batch: int,

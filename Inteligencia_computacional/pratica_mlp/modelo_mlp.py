@@ -14,17 +14,25 @@ class ModeloMLP(nn.Module):
 
     def __init__(
         self,
-        tamanho_entrada_pixel: int = 28 * 28,
-        tamanho_neuronios_ocultos: int = 100,
+        quantidade_pixels_imagem: int = 28 * 28,
+        quantidade_neuronios_ocultos: int = 100,
         quantidade_digitos: int = 10,
     ):
         super().__init__()
 
-        self.camada_entrada = nn.Linear(tamanho_entrada_pixel, tamanho_neuronios_ocultos)
-        self.ativacao = nn.ReLU()
-        self.camada_saida = nn.Linear(tamanho_neuronios_ocultos, quantidade_digitos)
+        self.camada_oculta = nn.Linear(
+            quantidade_pixels_imagem,
+            quantidade_neuronios_ocultos,
+        )
 
-    def executador(self, imagens: torch.Tensor) -> torch.Tensor:
+        self.funcao_ativacao = nn.ReLU()
+
+        self.camada_classificacao = nn.Linear(
+            quantidade_neuronios_ocultos,
+            quantidade_digitos,
+        )
+
+    def forward(self, imagens: torch.Tensor) -> torch.Tensor:
         """
         Executa a passagem dos dados pela rede neural.
         """
@@ -52,11 +60,13 @@ class ModeloMLP(nn.Module):
         # Retorna logits brutos.
         # =======================================================================
         return logits
-
-
-
-def contar_parametros(modelo: nn.Module) -> int:
+        
+def contar_parametros_treinaveis(modelo: nn.Module) -> int:
     """
     Conta a quantidade de parâmetros treináveis do modelo.
     """
-    return sum(parametro.numel() for parametro in modelo.parameters() if parametro.requires_grad)
+    return sum(
+        parametro.numel()
+        for parametro in modelo.parameters()
+        if parametro.requires_grad
+    )

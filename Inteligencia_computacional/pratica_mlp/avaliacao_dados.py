@@ -10,8 +10,9 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import accuracy_score
+
 # pyrefly: ignore [missing-import]
-from carregar_dados_mnist.modelo_mlp import ModeloMLP
+from .modelo_mlp import ModeloMLP
 
 # ===================================================================================================== #
 # accuracy_score -> acurácia geral
@@ -204,6 +205,89 @@ def gerar_matriz_confusao(
         labels=list(range(quantidade_digitos)),
     )
 
+# ====================================================================================================== #
+# Essa função mostra o relatório final da MLP.
+# ====================================================================================================== #
+def exibir_relatorio_avaliacao_final(
+    y_real_teste,
+    y_previsto_teste,
+    acuracia_treino: float,
+    acuracia_teste: float,
+    quantidade_digitos: int = 10,
+):
+    """
+    Exibe o relatório final da MLP em formato organizado.
+
+    O relatório mostra:
+        - desempenho no conjunto de teste;
+        - matriz de confusão;
+        - relatório de classificação;
+        - comparação entre treino e teste;
+        - possível indicação de overfitting.
+    """
+
+    print("\n" + "=" * 70)
+    print("AVALIAÇÃO FINAL - MLP COM PYTORCH")
+    print("=" * 70)
+
+    # ========================================================================================
+    # Desempenho no conjunto de teste.
+    # ========================================================================================
+    print("\n" + "-" * 70)
+    print("DESEMPENHO NO CONJUNTO DE TESTE")
+    print("-" * 70)
+
+    print("\nAcurácia no teste:")
+    print(f"{acuracia_teste:.4f}")
+
+    print("\nMatriz de confusão - teste:")
+    print(
+        confusion_matrix(
+            y_real_teste,
+            y_previsto_teste,
+            labels=list(range(quantidade_digitos)),
+        )
+    )
+
+    nomes_classes = [f"digit_{indice}" for indice in range(quantidade_digitos)]
+
+    print("\nRelatório de classificação - teste:")
+    print(
+        classification_report(
+            y_real_teste,
+            y_previsto_teste,
+            target_names=nomes_classes,
+            digits=4,
+            zero_division=0,
+        )
+    )
+
+    # ========================================================================================
+    # Comparação treino x teste.
+    # ========================================================================================
+    diferenca = acuracia_treino - acuracia_teste
+
+    print("\n" + "-" * 70)
+    print("COMPARAÇÃO TREINO X TESTE")
+    print("-" * 70)
+
+    print(f"Acurácia treinamento: {acuracia_treino:.4f}")
+    print(f"Acurácia teste:       {acuracia_teste:.4f}")
+    print(f"Diferença:            {diferenca:.4f}")
+
+    if diferenca > 0.15:
+        print(
+            "\nPossível sinal de overfitting: "
+            "desempenho no treino muito superior ao teste."
+        )
+    else:
+        print("\nA diferença entre treino e teste não está excessivamente alta.")
+
+    return {
+        "acuracia_treinamento": acuracia_treino,
+        "acuracia_teste": acuracia_teste,
+        "diferenca": diferenca,
+    }
 # ====================================================================================================== #
 # Essa função mostra o resultado final do modelo , ela calcula várias métricas.
 # ====================================================================================================== #
