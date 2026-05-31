@@ -1,0 +1,257 @@
+
+======================================================================
+RESULTADO
+======================================================================
+
+======================================================================
+CARREGAMENTO DO DATASET
+======================================================================
+
+Dataset carregado com sucesso.
+Caminho do arquivo: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\random_florest\dados_diabetes\diabetes.csv
+Linhas: 768
+Colunas: 9
+
+======================================================================
+VERIFICAÇÃO DA QUALIDADE DOS DADOS
+======================================================================
+
+======================================================================
+===============RESUMO GERAL DO DATASET==================
+======================================================================
+Total de linhas: 768
+Total de colunas: 9
+
+Colunas disponíveis no dataset:
+- Pregnancies
+- Glucose
+- BloodPressure
+- SkinThickness
+- Insulin
+- BMI
+- DiabetesPedigreeFunction
+- Age
+- Outcome
+
+Primeiras linhas do dataset:
+ Pregnancies  Glucose  BloodPressure  SkinThickness  Insulin  BMI  DiabetesPedigreeFunction  Age  Outcome
+           6      148             72             35        0 33.6                     0.627   50        1
+           1       85             66             29        0 26.6                     0.351   31        0
+           8      183             64              0        0 23.3                     0.672   32        1
+           1       89             66             23       94 28.1                     0.167   21        0
+           0      137             40             35      168 43.1                     2.288   33        1
+
+======================================================================
+TIPOS DAS COLUNAS
+======================================================================
+                  coluna    tipo
+             Pregnancies   int64
+                 Glucose   int64
+           BloodPressure   int64
+           SkinThickness   int64
+                 Insulin   int64
+                     BMI float64
+DiabetesPedigreeFunction float64
+                     Age   int64
+                 Outcome   int64
+
+======================================================================
+==============RELATÓRIO DE VALORES AUSENTES==============
+======================================================================
+Total geral de valores ausentes: 0
+
+Nenhuma coluna com valores ausentes.
+
+======================================================================
+========================RELATÓRIO DE LINHAS DUPLICADAS=======================
+======================================================================
+Total de linhas duplicadas: 0
+
+Nenhuma linha duplicada encontrada.
+
+======================================================================
+===========RELATÓRIO DE VALORES ZERO EM COLUNAS CLÍNICAS========
+======================================================================
+       coluna  qtd_zeros  percentual_zeros
+      Glucose          5              0.65
+BloodPressure         35              4.56
+SkinThickness        227             29.56
+      Insulin        374             48.70
+          BMI         11              1.43
+
+======================================================================
+=================ESTATÍSTICAS DESCRITIVAS===============
+======================================================================
+       Pregnancies  Glucose  BloodPressure  SkinThickness  Insulin     BMI  DiabetesPedigreeFunction     Age  Outcome
+count       768.00   768.00         768.00         768.00   768.00  768.00                    768.00  768.00   768.00
+mean          3.85   120.89          69.11          20.54    79.80   31.99                      0.47   33.24     0.35
+std           3.37    31.97          19.36          15.95   115.24    7.88                      0.33   11.76     0.48
+min           0.00     0.00           0.00           0.00     0.00    0.00                      0.08   21.00     0.00
+25%           1.00    99.00          62.00           0.00     0.00   27.30                      0.24   24.00     0.00
+50%           3.00   117.00          72.00          23.00    30.50   32.00                      0.37   29.00     0.00
+75%           6.00   140.25          80.00          32.00   127.25   36.60                      0.63   41.00     1.00
+max          17.00   199.00         122.00          99.00   846.00   67.10                      2.42   81.00     1.00
+
+======================================================================
+=============DISTRIBUIÇÃO DA VARIÁVEL ALVO================
+======================================================================
+ classe  quantidade  percentual
+      0         500        65.1
+      1         268        34.9
+
+Legenda:
+0 = Paciente sem indicação de diabetes
+1 = Paciente com indicação de diabetes
+
+======================================================================
+VERIFICAÇÃO CONCLUÍDA
+======================================================================
+Dataset verificado com sucesso.
+
+======================================================================
+INÍCIO DA LIMPEZA DOS DADOS
+======================================================================
+
+======================================================================
+=====================REMOÇÃO DE LINHAS DUPLICADAS========================
+======================================================================
+Total de linhas antes: 768
+Total de linhas depois: 768
+Linhas removidas: 0
+
+======================================================================
+==================TRATAMENTO DE VALORES ZERO SUSPEITOS================
+======================================================================
+Coluna: Glucose
+- Zeros antes: 5
+- Mediana utilizada: 117.00
+- Zeros depois: 0
+--------------------------------------------------
+Coluna: BloodPressure
+- Zeros antes: 35
+- Mediana utilizada: 72.00
+- Zeros depois: 0
+--------------------------------------------------
+Coluna: SkinThickness
+- Zeros antes: 227
+- Mediana utilizada: 29.00
+- Zeros depois: 0
+--------------------------------------------------
+Coluna: Insulin
+- Zeros antes: 374
+- Mediana utilizada: 125.00
+- Zeros depois: 0
+--------------------------------------------------
+Coluna: BMI
+- Zeros antes: 11
+- Mediana utilizada: 32.30
+- Zeros depois: 0
+--------------------------------------------------
+
+======================================================================
+LIMPEZA CONCLUÍDA
+======================================================================
+Dataset limpo com sucesso.
+
+======================================================================
+PREPARAÇÃO DOS DADOS PARA MODELAGEM
+======================================================================
+
+Variáveis preditoras utilizadas:
+- Pregnancies
+- Glucose
+- BloodPressure
+- SkinThickness
+- Insulin
+- BMI
+- DiabetesPedigreeFunction
+- Age
+
+Variável alvo:
+- Outcome
+
+======================================================================
+DIVISÃO ENTRE TREINO E TESTE
+======================================================================
+Amostras para treino: 537
+Amostras para teste: 231
+Percentual de treino: 70%
+Percentual de teste: 30%
+
+Distribuição da variável alvo no treino:
+Outcome
+0    349
+1    188
+
+Distribuição da variável alvo no teste:
+Outcome
+0    151
+1     80
+
+======================================================================
+MODELO 1 - ÁRVORE SOLITÁRIA
+======================================================================
+Árvore Solitária treinada com sucesso.
+Tempo de treinamento: 0.0040 segundos
+
+======================================================================
+AVALIAÇÃO - ÁRVORE SOLITÁRIA
+======================================================================
+Acurácia no treino: 100.00%
+Acurácia no teste: 69.70%
+Gap treino-teste: 30.30%
+
+======================================================================
+MODELO 2 - PEQUENA FLORESTA
+======================================================================
+Pequena Floresta treinada com sucesso.
+Tempo de treinamento: 0.0130 segundos
+
+======================================================================
+AVALIAÇÃO - PEQUENA FLORESTA
+======================================================================
+Acurácia no treino: 98.70%
+Acurácia no teste: 73.16%
+Gap treino-teste: 25.54%
+
+======================================================================
+MODELO 3 - GRANDE FLORESTA PARALELIZADA
+======================================================================
+Grande Floresta Paralelizada treinada com sucesso.
+Tempo de treinamento: 0.1684 segundos
+
+======================================================================
+AVALIAÇÃO - GRANDE FLORESTA PARALELIZADA
+======================================================================
+Acurácia no treino: 100.00%
+Acurácia no teste: 75.32%
+Gap treino-teste: 24.68%
+
+======================================================================
+MODELO 4 - FLORESTA PODADA
+======================================================================
+Floresta Podada treinada com sucesso.
+Tempo de treinamento: 0.1613 segundos
+
+======================================================================
+AVALIAÇÃO - FLORESTA PODADA
+======================================================================
+Acurácia no treino: 87.34%
+Acurácia no teste: 75.32%
+Gap treino-teste: 12.01%
+
+======================================================================
+TABELA COMPARATIVA FINAL
+======================================================================
+                      Modelo  Acurácia Treino (%)  Acurácia Teste (%)  Gap (%)  Tempo de Treinamento (s)
+            Árvore Solitária               100.00               69.70    30.30                    0.0040
+            Pequena Floresta                98.70               73.16    25.54                    0.0130
+Grande Floresta Paralelizada               100.00               75.32    24.68                    0.1684
+             Floresta Podada                87.34               75.32    12.01                    0.1613
+
+Relatório TXT salvo em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Inteligencia_computacional\random_florest\output-relatorios\relatorio_random_forest.txt
+
+======================================================================
+EXPERIMENTO CONCLUÍDO
+======================================================================
+Todos os modelos foram treinados, avaliados e salvos com sucesso.
