@@ -1,0 +1,267 @@
+================================================================================
+INÍCIO DA PIPELINE BRONZE
+================================================================================
+CSV já existe. Carregando arquivo: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\dados_feminicidio\2020_primeiro_semestre.csv
+CSV carregado com sucesso. Linhas e colunas: (372895, 32)
+================================================================================
+PIPELINE BRONZE - DIAGNÓSTICO INICIAL DA BASE
+================================================================================
+
+--------------------------------------------------------------------------------
+[1] DIMENSÕES DA BASE
+--------------------------------------------------------------------------------
+Quantidade de linhas: 372895
+Quantidade de colunas: 32
+
+--------------------------------------------------------------------------------
+[2] COLUNAS DA BASE
+--------------------------------------------------------------------------------
+01. Data da denúncia - Ano
+02. Data da denúncia - Mês
+03. Data da denúncia - Dia
+04. Tipo de violação
+05. Grupo vulnerável
+06. Espécie de violação
+07. Canal de atendimento
+08. Cenário da violação
+09. Motivação
+10. Denúncia Emergencial
+11. Agravantes
+12. agravantes_policiais
+13. UF
+14. Município
+15. Denunciante
+16. Sexo da vítima
+17. Faixa Etária Vítima
+18. Grau instrução da vítima
+19. Raça\cor da vítima
+20. Faixa de renda da vítima
+21. País de orígem da vítima
+22. Nacionalidade da vítima
+23. deficiencia_vitima
+24. Sexo do suspeito
+25. Faixa Etária Suspeito
+26. Grau instrução do suspeito
+27. Raça\cor do suspeito
+28. Faixa de renda do suspeito
+29. País de orígem do suspeito
+30. Nacionalidade do suspeito
+31. deficiencia_suspeito
+32. Relação Vítima x Suspeito
+
+--------------------------------------------------------------------------------
+[3] TIPOS DE DADOS
+--------------------------------------------------------------------------------
+Data da denúncia - Ano        int64
+Data da denúncia - Mês          str
+Data da denúncia - Dia        int64
+Tipo de violação                str
+Grupo vulnerável                str
+Espécie de violação             str
+Canal de atendimento            str
+Cenário da violação             str
+Motivação                       str
+Denúncia Emergencial            str
+Agravantes                      str
+agravantes_policiais            str
+UF                              str
+Município                       str
+Denunciante                     str
+Sexo da vítima                  str
+Faixa Etária Vítima             str
+Grau instrução da vítima        str
+Raça\cor da vítima              str
+Faixa de renda da vítima        str
+País de orígem da vítima        str
+Nacionalidade da vítima         str
+deficiencia_vitima              str
+Sexo do suspeito                str
+Faixa Etária Suspeito           str
+Grau instrução do suspeito      str
+Raça\cor do suspeito            str
+Faixa de renda do suspeito      str
+País de orígem do suspeito      str
+Nacionalidade do suspeito       str
+deficiencia_suspeito            str
+Relação Vítima x Suspeito       str
+dtype: object
+
+--------------------------------------------------------------------------------
+[4] VALORES AUSENTES POR COLUNA
+--------------------------------------------------------------------------------
+Data da denúncia - Ano             0
+Data da denúncia - Mês             0
+Data da denúncia - Dia             0
+Tipo de violação                   0
+Grupo vulnerável                   0
+Espécie de violação                0
+Canal de atendimento               0
+Cenário da violação                0
+Motivação                          0
+Denúncia Emergencial               0
+Agravantes                         0
+agravantes_policiais               0
+UF                                 0
+Município                          3
+Denunciante                        0
+Sexo da vítima                     0
+Faixa Etária Vítima              690
+Grau instrução da vítima           0
+Raça\cor da vítima                 0
+Faixa de renda da vítima           0
+País de orígem da vítima           0
+Nacionalidade da vítima            0
+deficiencia_vitima                 0
+Sexo do suspeito                   0
+Faixa Etária Suspeito         190806
+Grau instrução do suspeito         0
+Raça\cor do suspeito               0
+Faixa de renda do suspeito         0
+País de orígem do suspeito         0
+Nacionalidade do suspeito          0
+deficiencia_suspeito               0
+Relação Vítima x Suspeito          0
+dtype: int64
+
+--------------------------------------------------------------------------------
+[5] RESUMO DE VALORES AUSENTES
+--------------------------------------------------------------------------------
+Total de valores nulos: 191499
+Quantidade de colunas com nulos: 3
+
+Colunas com valores nulos:
+- Município: 3 nulos (0.00%)
+- Faixa Etária Vítima: 690 nulos (0.19%)
+- Faixa Etária Suspeito: 190806 nulos (51.17%)
+
+--------------------------------------------------------------------------------
+[6] VALORES TEXTUAIS PROBLEMÁTICOS
+--------------------------------------------------------------------------------
+Strings vazias: 0
+Strings com 'nan' ou 'none' como texto: 0
+
+--------------------------------------------------------------------------------
+[7] PRÉVIA DOS DADOS
+--------------------------------------------------------------------------------
+   Data da denúncia - Ano Data da denúncia - Mês  Data da denúncia - Dia  ... Nacionalidade do suspeito deficiencia_suspeito Relação Vítima x Suspeito
+0                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
+1                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
+2                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+3                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+4                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+
+[5 rows x 32 columns]
+
+--------------------------------------------------------------------------------
+[8] RESUMO FINAL DO DIAGNÓSTICO
+--------------------------------------------------------------------------------
+Diagnóstico inicial concluído.
+A base foi carregada e inspecionada com sucesso.
+Observação: existem valores ausentes que deverão ser tratados na próxima camada.
+
+================================================================================
+INÍCIO DA LIMPEZA DOS DADOS - CAMADA BRONZE
+================================================================================
+Cabeçalho validado com sucesso.
+Linhas totalmente vazias removidas: 0
+Nomes das colunas padronizados.
+Colunas textuais padronizadas: 30
+Textos equivalentes a nulo convertidos para pd.NA.
+
+================================================================================
+RELATÓRIO APÓS LIMPEZA
+================================================================================
+
+Quantidade de linhas e colunas:
+(372895, 32)
+
+Colunas da base após limpeza:
+01. Data da denúncia - Ano
+02. Data da denúncia - Mês
+03. Data da denúncia - Dia
+04. Tipo de violação
+05. Grupo vulnerável
+06. Espécie de violação
+07. Canal de atendimento
+08. Cenário da violação
+09. Motivação
+10. Denúncia Emergencial
+11. Agravantes
+12. agravantes_policiais
+13. UF
+14. Município
+15. Denunciante
+16. Sexo da vítima
+17. Faixa Etária Vítima
+18. Grau instrução da vítima
+19. Raça\cor da vítima
+20. Faixa de renda da vítima
+21. País de orígem da vítima
+22. Nacionalidade da vítima
+23. deficiencia_vitima
+24. Sexo do suspeito
+25. Faixa Etária Suspeito
+26. Grau instrução do suspeito
+27. Raça\cor do suspeito
+28. Faixa de renda do suspeito
+29. País de orígem do suspeito
+30. Nacionalidade do suspeito
+31. deficiencia_suspeito
+32. Relação Vítima x Suspeito
+
+Total de valores nulos:
+191499
+
+Valores nulos por coluna:
+Data da denúncia - Ano             0
+Data da denúncia - Mês             0
+Data da denúncia - Dia             0
+Tipo de violação                   0
+Grupo vulnerável                   0
+Espécie de violação                0
+Canal de atendimento               0
+Cenário da violação                0
+Motivação                          0
+Denúncia Emergencial               0
+Agravantes                         0
+agravantes_policiais               0
+UF                                 0
+Município                          3
+Denunciante                        0
+Sexo da vítima                     0
+Faixa Etária Vítima              690
+Grau instrução da vítima           0
+Raça\cor da vítima                 0
+Faixa de renda da vítima           0
+País de orígem da vítima           0
+Nacionalidade da vítima            0
+deficiencia_vitima                 0
+Sexo do suspeito                   0
+Faixa Etária Suspeito         190806
+Grau instrução do suspeito         0
+Raça\cor do suspeito               0
+Faixa de renda do suspeito         0
+País de orígem do suspeito         0
+Nacionalidade do suspeito          0
+deficiencia_suspeito               0
+Relação Vítima x Suspeito          0
+dtype: int64
+
+Prévia dos dados limpos:
+   Data da denúncia - Ano Data da denúncia - Mês  Data da denúncia - Dia  ... Nacionalidade do suspeito deficiencia_suspeito Relação Vítima x Suspeito
+0                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
+1                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
+2                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+3                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+4                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+
+[5 rows x 32 columns]
+
+================================================================================
+FIM DA LIMPEZA DOS DADOS - CAMADA BRONZE
+================================================================================
+
+================================================================================
+FIM DA PIPELINE BRONZE
+================================================================================
+Output salvo em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\dados_feminicidio\output_bronze.txt
