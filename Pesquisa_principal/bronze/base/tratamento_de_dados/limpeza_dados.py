@@ -10,10 +10,9 @@
 # ======================================================================================
 
 import pandas as pd
-
-
-import pandas as pd
-
+from pathlib import Path
+# pyrefly: ignore [missing-import]
+from Pesquisa_principal.bronze.base.tratamento_de_dados.tratativa_nome_colunas import tratar_nomes_colunas
 
 def validar_cabecalho(dataframe: pd.DataFrame) -> None:
     """
@@ -62,30 +61,6 @@ def remover_linhas_totalmente_vazias(dataframe: pd.DataFrame) -> pd.DataFrame:
     return dataframe
 
 
-def padronizar_nomes_colunas(dataframe: pd.DataFrame) -> pd.DataFrame:
-    """
-    Padroniza os nomes das colunas:
-    - Remove espaços extras
-    - Troca quebras de linha por espaço
-    - Remove múltiplos espaços internos
-    """
-
-    dataframe = dataframe.copy()
-
-    dataframe.columns = (
-        dataframe.columns
-        .astype(str)
-        .str.strip()
-        .str.replace("\n", " ", regex=False)
-        .str.replace("\r", " ", regex=False)
-        .str.replace(r"\s+", " ", regex=True)
-    )
-
-    print("Nomes das colunas padronizados.")
-
-    return dataframe
-
-
 def padronizar_textos(dataframe: pd.DataFrame) -> pd.DataFrame:
     """
     Padroniza colunas de texto:
@@ -114,29 +89,120 @@ def converter_textos_nulos_para_na(dataframe: pd.DataFrame) -> pd.DataFrame:
     """
     Converte textos que representam ausência de informação para pd.NA.
 
-    Observação:
-    - 'N/D' será mantido por enquanto, pois na sua base ele representa
-      uma categoria informativa, não necessariamente um erro.
+    Exemplos tratados:
+    - ""
+    - " "
+    - "NULL"
+    - "null"
+    - "NAN"
+    - "nan"
+    - "NaN"
+    - "None"
+    - "none"
+    - "N/D"
+    - "ND"
+    - "NA"
+    - "N.A"
+    - "Não informado"
+    - "Nao informado"
     """
 
     dataframe = dataframe.copy()
 
-    valores_nulos_textuais = [
+    colunas_texto = dataframe.select_dtypes(include=["object", "string"]).columns
+
+    valores_nulos_textuais = {
         "",
-        "nan",
-        "NaN",
-        "none",
-        "None",
-        "NULL",
         "null",
-    ]
+        "nan",
+        "none",
+        "n/d",
+        "nd",
+        "na",
+        "n.a",
+        "não informado",
+        "nao informado",
+    }
 
-    dataframe = dataframe.replace(valores_nulos_textuais, pd.NA)
+    total_convertidos = 0
 
-    print("Textos equivalentes a nulo convertidos para pd.NA.")
+    for coluna in colunas_texto:
+        serie_original = dataframe[coluna]
+
+        mascara_nulos_textuais = (
+            serie_original
+            .astype("string")
+            .str.strip()
+            .str.lower()
+            .isin(valores_nulos_textuais)
+        )
+
+        qtd_convertidos_coluna = int(mascara_nulos_textuais.sum())
+        total_convertidos += qtd_convertidos_coluna
+
+        dataframe.loc[mascara_nulos_textuais, coluna] = pd.NA
+
+        if qtd_convertidos_coluna > 0:
+            print(
+                f"Coluna '{coluna}': "
+                f"{qtd_convertidos_coluna} valores textuais nulos convertidos para pd.NA."
+            )
+
+    print(f"Total de valores NULL/NAN/N/D/vazios convertidos para pd.NA: {total_convertidos}")
 
     return dataframe
 
+def tratar_nulos_colunas_criticas(dataframe: pd.DataFrame) -> pd.DataFrame:
+    """
+    Trata valores nulos em colunas críticas da base.
+
+    A coluna 'faixa_etaria_suspeito' possui alto percentual de ausência.
+    Por isso, os valores ausentes são preenchidos com uma categoria explícita,
+    indicando que a informação do suspeito não foi informada.
+    """
+
+    dataframe = dataframe.copy()
+
+    if "faixa_etaria_suspeito" in dataframe.columns:
+        qtd_nulos = dataframe["faixa_etaria_suspeito"].isna().sum()
+
+        dataframe["faixa_etaria_suspeito"] = dataframe["faixa_etaria_suspeito"].fillna(
+            "info_suspeito_nao_informada"
+        )
+
+        print(
+            "Coluna 'faixa_etaria_suspeito': "
+            f"{qtd_nulos} valores nulos preenchidos com "
+            "'info_suspeito_nao_informada'."
+        )
+
+    if "faixa_etaria_vitima" in dataframe.columns:
+        qtd_nulos = dataframe["faixa_etaria_vitima"].isna().sum()
+
+        dataframe["faixa_etaria_vitima"] = dataframe["faixa_etaria_vitima"].fillna(
+            "info_vitima_nao_informada"
+        )
+
+        print(
+            "Coluna 'faixa_etaria_vitima': "
+            f"{qtd_nulos} valores nulos preenchidos com "
+            "'info_vitima_nao_informada'."
+        )
+
+    if "municipio" in dataframe.columns:
+        qtd_nulos = dataframe["municipio"].isna().sum()
+
+        dataframe["municipio"] = dataframe["municipio"].fillna(
+            "municipio_nao_informado"
+        )
+
+        print(
+            "Coluna 'municipio': "
+            f"{qtd_nulos} valores nulos preenchidos com "
+            "'municipio_nao_informado'."
+        )
+
+    return dataframe
 
 def relatorio_limpeza(dataframe: pd.DataFrame) -> None:
     """
@@ -171,10 +237,11 @@ def limpar_dados_bronze(dataframe: pd.DataFrame) -> pd.DataFrame:
     Fluxo:
     1. Valida o cabeçalho
     2. Remove linhas totalmente vazias
-    3. Padroniza nomes das colunas
+    3. Trata nomes das colunas
     4. Padroniza textos
     5. Converte textos nulos para pd.NA
-    6. Exibe relatório da limpeza
+    6. Trata nulos críticos com categorias explícitas
+    7. Exibe relatório da limpeza
     """
 
     print("\n" + "=" * 80)
@@ -184,9 +251,10 @@ def limpar_dados_bronze(dataframe: pd.DataFrame) -> pd.DataFrame:
     validar_cabecalho(dataframe)
 
     dataframe = remover_linhas_totalmente_vazias(dataframe)
-    dataframe = padronizar_nomes_colunas(dataframe)
+    dataframe = tratar_nomes_colunas(dataframe)
     dataframe = padronizar_textos(dataframe)
     dataframe = converter_textos_nulos_para_na(dataframe)
+    dataframe = tratar_nulos_colunas_criticas(dataframe)
 
     relatorio_limpeza(dataframe)
 
@@ -195,3 +263,23 @@ def limpar_dados_bronze(dataframe: pd.DataFrame) -> pd.DataFrame:
     print("=" * 80)
 
     return dataframe
+
+def salvar_dataframe_limpo(
+    dataframe: pd.DataFrame,
+    caminho_saida: str | Path,
+) -> None:
+    """
+    Salva o DataFrame limpo em formato CSV.
+    """
+
+    caminho_saida = Path(caminho_saida)
+
+    caminho_saida.parent.mkdir(parents=True, exist_ok=True)
+
+    dataframe.to_csv(
+        caminho_saida,
+        index=False,
+        encoding="utf-8",
+    )
+
+    print(f"DataFrame limpo salvo com sucesso em: {caminho_saida}")
