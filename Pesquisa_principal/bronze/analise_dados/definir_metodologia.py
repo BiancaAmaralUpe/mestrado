@@ -134,11 +134,79 @@ def registrar_observacoes_metodologicas() -> None:
         "na generalização dos resultados."
     )
 
+    print(
+        "- As variáveis 'nacionalidade_suspeito', "
+        "'pais_origem_suspeito', "
+        "'raca_cor_suspeito' e "
+        "'raca_cor_vitima' foram classificadas como candidatas à exclusão."
+    )
+
+    print(
+        "- A decisão foi motivada pelo potencial de introdução de vieses "
+        "analíticos e interpretativos, além da necessidade de reduzir "
+        "atributos sensíveis na etapa de modelagem."
+    )
+
+    print(
+        "- As variáveis 'uf' e 'municipio' serão reavaliadas antes da "
+        "etapa de preparação dos dados devido à alta cardinalidade."
+    )
+
+    print(
+        "- A exclusão definitiva dessas variáveis será realizada na etapa "
+        "de preparação dos dados, preservando a rastreabilidade da camada bronze."
+    )
+
+def registrar_variaveis_excluidas() -> None:
+    """
+    Registra as variáveis definidas para exclusão
+    nas próximas etapas do projeto.
+    """
+
+    print("\n" + "=" * 80)
+    print("VARIÁVEIS DEFINIDAS PARA EXCLUSÃO")
+    print("=" * 80)
+
+    print(
+        "\nAs variáveis abaixo foram classificadas para exclusão "
+        "nas próximas etapas do projeto:"
+    )
+
+    print("\n- nacionalidade_suspeito")
+    print("  Motivo: variável sensível com baixo potencial analítico.")
+
+    print("\n- pais_origem_suspeito")
+    print("  Motivo: variável sensível e sujeita a vieses interpretativos.")
+
+    print("\n- raca_cor_suspeito")
+    print(
+        "  Motivo: atributo sensível que pode introduzir vieses "
+        "na construção de indicadores e modelos."
+    )
+
+    print("\n- raca_cor_vitima")
+    print(
+        "  Motivo: atributo sensível que pode introduzir vieses "
+        "na construção de indicadores e modelos."
+    )
+
+    print(
+        "\nObservação: a exclusão será realizada na etapa de "
+        "preparação dos dados, preservando a camada bronze "
+        "como registro fiel dos dados tratados."
+    )
 
 def definir_metodologia_analise(dataframe: pd.DataFrame) -> None:
     """
     Executa a definição metodológica preliminar com base na qualidade da base.
     """
 
+    """
+    Executa a definição metodológica inicial com base na qualidade da base.
+    """
+
     classificar_colunas_por_completude(dataframe)
+
     registrar_observacoes_metodologicas()
+
+    registrar_variaveis_excluidas()
