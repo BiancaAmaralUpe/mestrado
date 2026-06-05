@@ -111,6 +111,28 @@ def registrar_observacoes_metodologicas() -> None:
         "exploratórios entre variáveis como tipo de violação, denúncia emergencial, "
         "relação vítima-suspeito, cenário da violação, UF, município e faixa etária."
     )
+    print(
+        "- As variáveis 'nacionalidade_suspeito', 'pais_origem_suspeito', "
+        "'raca_cor_suspeito' e 'raca_cor_vitima' foram identificadas como "
+        "variáveis sensíveis para análise."
+    )
+
+    print(
+        "- Essas variáveis podem introduzir vieses analíticos e interpretações "
+        "equivocadas caso sejam utilizadas sem justificativa metodológica adequada."
+    )
+
+    print(
+        "- Neste momento, as variáveis permanecem na base e serão reavaliadas "
+        "antes das etapas de modelagem, construção de score ou análise inferencial."
+    )
+
+    print(
+        "- As variáveis geográficas 'uf' e 'municipio' serão mantidas para análises "
+        "exploratórias e cruzamentos regionais. Sua utilização futura em modelos "
+        "será avaliada considerando a alta cardinalidade e o potencial impacto "
+        "na generalização dos resultados."
+    )
 
 
 def definir_metodologia_analise(dataframe: pd.DataFrame) -> None:

@@ -15,38 +15,38 @@ Quantidade de colunas: 32
 --------------------------------------------------------------------------------
 [2] TIPOS DE DADOS
 --------------------------------------------------------------------------------
-data_denuncia_ano           int64
-data_denuncia_mes          string
-data_denuncia_dia           int64
-tipo_violacao              string
-grupo_vulneravel           string
-especie_violacao           string
-canal_atendimento          string
-cenario_violacao           string
-motivacao                  string
-denuncia_emergencial       string
-agravantes                 string
-agravantes_policiais       string
-uf                         string
-municipio                  string
-denunciante                string
-sexo_vitima                string
-faixa_etaria_vitima        string
-grau_instrucao_vitima      string
-raca_cor_vitima            string
-faixa_renda_vitima         string
-pais_origem_vitima         string
-nacionalidade_vitima       string
-deficiencia_vitima         string
-sexo_suspeito              string
-faixa_etaria_suspeito      string
-grau_instrucao_suspeito    string
-raca_cor_suspeito          string
-faixa_renda_suspeito       string
-pais_origem_suspeito       string
-nacionalidade_suspeito     string
-deficiencia_suspeito       string
-relacao_vitima_suspeito    string
+data_denuncia_ano                   int64
+data_denuncia_mes          string[python]
+data_denuncia_dia                   int64
+tipo_violacao              string[python]
+grupo_vulneravel           string[python]
+especie_violacao           string[python]
+canal_atendimento          string[python]
+cenario_violacao           string[python]
+motivacao                  string[python]
+denuncia_emergencial       string[python]
+agravantes                 string[python]
+agravantes_policiais       string[python]
+uf                         string[python]
+municipio                  string[python]
+denunciante                string[python]
+sexo_vitima                string[python]
+faixa_etaria_vitima        string[python]
+grau_instrucao_vitima      string[python]
+raca_cor_vitima            string[python]
+faixa_renda_vitima         string[python]
+pais_origem_vitima         string[python]
+nacionalidade_vitima       string[python]
+deficiencia_vitima         string[python]
+sexo_suspeito              string[python]
+faixa_etaria_suspeito      string[python]
+grau_instrucao_suspeito    string[python]
+raca_cor_suspeito          string[python]
+faixa_renda_suspeito       string[python]
+pais_origem_suspeito       string[python]
+nacionalidade_suspeito     string[python]
+deficiencia_suspeito       string[python]
+relacao_vitima_suspeito    string[python]
 dtype: object
 
 --------------------------------------------------------------------------------
@@ -329,107 +329,109 @@ tipo_violacao                                              ...
 --------------------------------------------------------------------------------
 Cruzamento: tipo_violacao x relacao_vitima_suspeito
 --------------------------------------------------------------------------------
-relacao_vitima_suspeito                             AGENTE PENITENCIÁRIO  AVÔ(Ó)  BISAVÔ(Ó)  COMPANHEIRO(A)  ...  TIO(A)  TRISAVÔ(Ó)  VIZINHO(A)   <NA>
-tipo_violacao                                                                                                ...                                       
-1. VIOLÊNCIA FÍSICA                                                   12     101         19           20557  ...     631           1        2489   5402
-2. VIOLÊNCIA PSICOLÓGICA                                              39     179         35           27433  ...    1405           4        8674  10336
-3. CRIMES CONTRA A VIDA                                                0       6          0            2195  ...      37           0         237    473
-4. AGRESSÕES QUE VIOLAM A HONRA                                       15      74         11           11407  ...     521           2        4312   3771
-5. AGRESSÕES QUE VIOLAM O DIREITO A LIBERDADE                          6      17          4            2915  ...     148           0         493    748
-6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POL...                     1       2          1             517  ...      25           0         219    232
-7. VIOLAÇÕES GERAIS                                                   16      71         10            6643  ...     589           1        2496   2908
+relacao_vitima_suspeito                             AGENTE PENITENCIÁRIO  AVÔ(Ó)  BISAVÔ(Ó)  ...  TRISAVÔ(Ó)  VIZINHO(A)   <NA>
+tipo_violacao                                                                                ...                               
+1. VIOLÊNCIA FÍSICA                                                   12     101         19  ...           1        2489   5402
+2. VIOLÊNCIA PSICOLÓGICA                                              39     179         35  ...           4        8674  10336
+3. CRIMES CONTRA A VIDA                                                0       6          0  ...           0         237    473
+4. AGRESSÕES QUE VIOLAM A HONRA                                       15      74         11  ...           2        4312   3771
+5. AGRESSÕES QUE VIOLAM O DIREITO A LIBERDADE                          6      17          4  ...           0         493    748
+6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POL...                     1       2          1  ...           0         219    232
+7. VIOLAÇÕES GERAIS                                                   16      71         10  ...           1        2496   2908
 
 [7 rows x 38 columns]
 
 --------------------------------------------------------------------------------
 Cruzamento: tipo_violacao x cenario_violacao
 --------------------------------------------------------------------------------
-cenario_violacao                                    AMBIENTE DE LAZER  AMBIENTE VIRTUAL (INTERNET/REDE SOCIAL/APLICATIVOS)  ...  ÔNIBUS  <NA>
-tipo_violacao                                                                                                               ...              
-1. VIOLÊNCIA FÍSICA                                               206                                               1523    ...      38   626
-2. VIOLÊNCIA PSICOLÓGICA                                          324                                               8057    ...     138   933
-3. CRIMES CONTRA A VIDA                                            15                                                204    ...       2    63
-4. AGRESSÕES QUE VIOLAM A HONRA                                   126                                               4164    ...      46   326
-5. AGRESSÕES QUE VIOLAM O DIREITO A LIBERDADE                      32                                                448    ...       6    90
-6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POL...                 14                                                 71    ...       1    28
-7. VIOLAÇÕES GERAIS                                                77                                               1871    ...      54   244
+cenario_violacao                                    AMBIENTE DE LAZER  ...  <NA>
+tipo_violacao                                                          ...      
+1. VIOLÊNCIA FÍSICA                                               206  ...   626
+2. VIOLÊNCIA PSICOLÓGICA                                          324  ...   933
+3. CRIMES CONTRA A VIDA                                            15  ...    63
+4. AGRESSÕES QUE VIOLAM A HONRA                                   126  ...   326
+5. AGRESSÕES QUE VIOLAM O DIREITO A LIBERDADE                      32  ...    90
+6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POL...                 14  ...    28
+7. VIOLAÇÕES GERAIS                                                77  ...   244
 
 [7 rows x 33 columns]
 
 --------------------------------------------------------------------------------
 Cruzamento: faixa_etaria_vitima x denuncia_emergencial
 --------------------------------------------------------------------------------
-denuncia_emergencial         NÃO  RISCO IMINENTE DE MORTE DA VÍTIMA  SITUAÇÃO FLAGRANTE - ATÉ 24H DA OCORRÊNCIA  VÍTIMA EM SANGRAMENTO
-faixa_etaria_vitima                                                                                                                   
-18 a 19 anos               56.37                               3.32                                       39.83                   0.48
-20 a 24 anos               53.16                               4.18                                       42.22                   0.43
-25 a 29 anos               52.07                               4.59                                       42.84                   0.49
-30 a 34 anos               51.76                               4.17                                       43.52                   0.55
-35 a 39 anos               53.31                               4.70                                       41.57                   0.42
-40 a 44 anos               53.28                               4.52                                       41.80                   0.40
-45 a 49 anos               53.22                               4.00                                       42.35                   0.43
-50 a 54 anos               52.67                               4.55                                       42.49                   0.28
-55 a 59 anos               53.96                               4.60                                       41.35                   0.09
-info_vitima_nao_informada  54.80                               4.74                                       39.96                   0.49
+denuncia_emergencial         NÃO  ...  VÍTIMA EM SANGRAMENTO
+faixa_etaria_vitima               ...                       
+18 a 19 anos               56.37  ...                   0.48
+20 a 24 anos               53.16  ...                   0.43
+25 a 29 anos               52.07  ...                   0.49
+30 a 34 anos               51.76  ...                   0.55
+35 a 39 anos               53.31  ...                   0.42
+40 a 44 anos               53.28  ...                   0.40
+45 a 49 anos               53.22  ...                   0.43
+50 a 54 anos               52.67  ...                   0.28
+55 a 59 anos               53.96  ...                   0.09
+info_vitima_nao_informada  54.80  ...                   0.49
+
+[10 rows x 4 columns]
 
 --------------------------------------------------------------------------------
 Cruzamento: uf x tipo_violacao
 --------------------------------------------------------------------------------
-tipo_violacao  1. VIOLÊNCIA FÍSICA  2. VIOLÊNCIA PSICOLÓGICA  ...  6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POLÍTICA  7. VIOLAÇÕES GERAIS
-uf                                                            ...                                                                           
-AC                           22.22                     41.36  ...                                               0.66                   13.53
-AL                           24.60                     41.51  ...                                               0.80                   10.99
-AM                           24.38                     40.63  ...                                               0.85                   10.84
-AP                           22.81                     40.11  ...                                               0.70                   11.09
-BA                           23.50                     39.92  ...                                               0.96                   11.79
-CE                           23.27                     40.95  ...                                               1.00                   11.79
-DF                           22.86                     42.17  ...                                               1.02                   10.28
-ES                           22.56                     40.96  ...                                               0.83                   11.45
-GO                           23.43                     40.79  ...                                               0.89                   11.40
-MA                           25.12                     39.71  ...                                               0.78                   10.90
-MG                           22.22                     41.58  ...                                               1.03                   11.24
-MS                           23.42                     41.00  ...                                               0.92                   11.35
-MT                           21.47                     40.74  ...                                               0.67                   11.03
-PA                           24.97                     40.42  ...                                               0.92                   11.29
-PB                           22.67                     41.68  ...                                               0.80                   10.87
-PE                           23.44                     40.86  ...                                               0.73                   11.73
-PI                           23.12                     41.62  ...                                               0.57                   11.10
-PR                           22.64                     41.52  ...                                               0.98                   12.07
-RJ                           22.37                     41.26  ...                                               1.04                   11.02
-RN                           23.20                     41.22  ...                                               1.15                   11.14
-RO                           22.90                     40.43  ...                                               0.79                   13.85
-RR                           22.69                     40.90  ...                                               0.62                   12.34
-RS                           21.98                     41.49  ...                                               0.80                   12.88
-SC                           23.63                     40.29  ...                                               1.00                   11.20
-SE                           23.92                     40.10  ...                                               0.88                   11.28
-SP                           23.44                     41.02  ...                                               0.99                   11.01
-TO                           23.77                     40.98  ...                                               0.62                   11.63
-<NA>                         22.34                     41.72  ...                                               2.03                   12.19
+tipo_violacao  1. VIOLÊNCIA FÍSICA  ...  7. VIOLAÇÕES GERAIS
+uf                                  ...                     
+AC                           22.22  ...                13.53
+AL                           24.60  ...                10.99
+AM                           24.38  ...                10.84
+AP                           22.81  ...                11.09
+BA                           23.50  ...                11.79
+CE                           23.27  ...                11.79
+DF                           22.86  ...                10.28
+ES                           22.56  ...                11.45
+GO                           23.43  ...                11.40
+MA                           25.12  ...                10.90
+MG                           22.22  ...                11.24
+MS                           23.42  ...                11.35
+MT                           21.47  ...                11.03
+PA                           24.97  ...                11.29
+PB                           22.67  ...                10.87
+PE                           23.44  ...                11.73
+PI                           23.12  ...                11.10
+PR                           22.64  ...                12.07
+RJ                           22.37  ...                11.02
+RN                           23.20  ...                11.14
+RO                           22.90  ...                13.85
+RR                           22.69  ...                12.34
+RS                           21.98  ...                12.88
+SC                           23.63  ...                11.20
+SE                           23.92  ...                11.28
+SP                           23.44  ...                11.01
+TO                           23.77  ...                11.63
+<NA>                         22.34  ...                12.19
 
 [28 rows x 7 columns]
 
 --------------------------------------------------------------------------------
 Cruzamento: faixa_etaria_suspeito x tipo_violacao
 --------------------------------------------------------------------------------
-tipo_violacao                1. VIOLÊNCIA FÍSICA  2. VIOLÊNCIA PSICOLÓGICA  ...  6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POLÍTICA  7. VIOLAÇÕES GERAIS
-faixa_etaria_suspeito                                                       ...                                                                           
-12 a 14 anos                               30.50                     42.47  ...                                               0.77                    8.11
-15 a 17 anos                               23.77                     43.14  ...                                               0.73                   11.62
-18 a 19 anos                               27.28                     40.67  ...                                               0.36                    9.67
-20 a 24 anos                               25.94                     41.52  ...                                               0.79                   10.16
-25 a 29 anos                               24.68                     41.63  ...                                               0.70                   10.65
-30 a 34 anos                               24.15                     42.32  ...                                               0.73                   10.32
-35 a 39 anos                               22.93                     42.45  ...                                               0.93                   10.99
-40 a 44 anos                               21.78                     42.96  ...                                               0.76                   11.55
-45 a 49 anos                               21.05                     42.99  ...                                               0.84                   11.17
-50 a 54 anos                               20.90                     43.09  ...                                               0.79                   11.96
-55 a 59 anos                               19.26                     43.83  ...                                               1.00                   11.11
-60 a 64 anos                               19.21                     44.35  ...                                               0.85                   11.49
-65 a 69 anos                               19.06                     45.51  ...                                               0.59                   11.88
-70 a 74 anos                               18.28                     45.30  ...                                               0.72                   11.97
-75 a 79 anos                               17.97                     40.86  ...                                               0.95                   14.15
-80 anos ou mais                            18.10                     43.67  ...                                               1.13                   12.90
-info_suspeito_nao_informada                23.29                     40.08  ...                                               1.04                   11.51
+tipo_violacao                1. VIOLÊNCIA FÍSICA  ...  7. VIOLAÇÕES GERAIS
+faixa_etaria_suspeito                             ...                     
+12 a 14 anos                               30.50  ...                 8.11
+15 a 17 anos                               23.77  ...                11.62
+18 a 19 anos                               27.28  ...                 9.67
+20 a 24 anos                               25.94  ...                10.16
+25 a 29 anos                               24.68  ...                10.65
+30 a 34 anos                               24.15  ...                10.32
+35 a 39 anos                               22.93  ...                10.99
+40 a 44 anos                               21.78  ...                11.55
+45 a 49 anos                               21.05  ...                11.17
+50 a 54 anos                               20.90  ...                11.96
+55 a 59 anos                               19.26  ...                11.11
+60 a 64 anos                               19.21  ...                11.49
+65 a 69 anos                               19.06  ...                11.88
+70 a 74 anos                               18.28  ...                11.97
+75 a 79 anos                               17.97  ...                14.15
+80 anos ou mais                            18.10  ...                12.90
+info_suspeito_nao_informada                23.29  ...                11.51
 
 [17 rows x 7 columns]
 
@@ -521,8 +523,12 @@ OBSERVAÇÕES METODOLÓGICAS PRELIMINARES
 - A coluna 'agravantes_policiais' apresentou percentual muito elevado de ausência e deverá ser avaliada posteriormente quanto à utilidade analítica.
 - Variáveis sociodemográficas com alta ausência, como renda, escolaridade, raça/cor, nacionalidade e deficiência, devem ser analisadas com cautela para evitar interpretações frágeis ou enviesadas.
 - Antes da criação de score ou modelo, serão necessários cruzamentos exploratórios entre variáveis como tipo de violação, denúncia emergencial, relação vítima-suspeito, cenário da violação, UF, município e faixa etária.
+- As variáveis 'nacionalidade_suspeito', 'pais_origem_suspeito', 'raca_cor_suspeito' e 'raca_cor_vitima' foram identificadas como variáveis sensíveis para análise.
+- Essas variáveis podem introduzir vieses analíticos e interpretações equivocadas caso sejam utilizadas sem justificativa metodológica adequada.
+- Neste momento, as variáveis permanecem na base e serão reavaliadas antes das etapas de modelagem, construção de score ou análise inferencial.
+- As variáveis geográficas 'uf' e 'municipio' serão mantidas para análises exploratórias e cruzamentos regionais. Sua utilização futura em modelos será avaliada considerando a alta cardinalidade e o potencial impacto na generalização dos resultados.
 
 ================================================================================
 FIM DA ANÁLISE DOS DADOS
 ================================================================================
-Output da análise salvo em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\analise_dados\output_analise.txt
+Output da análise salvo em: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\analise_dados\output_analise.txt

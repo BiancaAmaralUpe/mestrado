@@ -1,8 +1,9 @@
 # pyrefly: ignore [missing-import]
-from Pesquisa_principal.bronze.base.transformacao_dados_xlsx_csv import transformar_base_feminicidio
+from Pesquisa_principal.bronze.base.tratamento_de_dados.transformacao_dados_xlsx_csv import transformar_base_feminicidio
+
 # ======================================================================================= #
 # para rodar o modulo de transformação dos dados de excel para .csv vai ser :
-# python -m Pesquisa_principal.update_dados
+# python -m Pesquisa_principal.bronze.base.tratamento_de_dados
 # ======================================================================================= #
 def main():
     transformar_base_feminicidio()

@@ -1,7 +1,7 @@
 ================================================================================
 INÍCIO DA PIPELINE BRONZE - TRATAMENTO DOS DADOS
 ================================================================================
-CSV já existe. Carregando arquivo: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\dados_feminicidio\2020_primeiro_semestre.csv
+CSV já existe. Carregando arquivo: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\dados_feminicidio\2020_primeiro_semestre.csv
 CSV carregado com sucesso. Linhas e colunas: (372895, 32)
 ================================================================================
 PIPELINE BRONZE - DIAGNÓSTICO INICIAL DA BASE
@@ -52,38 +52,38 @@ Quantidade de colunas: 32
 --------------------------------------------------------------------------------
 [3] TIPOS DE DADOS
 --------------------------------------------------------------------------------
-Data da denúncia - Ano        int64
-Data da denúncia - Mês          str
-Data da denúncia - Dia        int64
-Tipo de violação                str
-Grupo vulnerável                str
-Espécie de violação             str
-Canal de atendimento            str
-Cenário da violação             str
-Motivação                       str
-Denúncia Emergencial            str
-Agravantes                      str
-agravantes_policiais            str
-UF                              str
-Município                       str
-Denunciante                     str
-Sexo da vítima                  str
-Faixa Etária Vítima             str
-Grau instrução da vítima        str
-Raça\cor da vítima              str
-Faixa de renda da vítima        str
-País de orígem da vítima        str
-Nacionalidade da vítima         str
-deficiencia_vitima              str
-Sexo do suspeito                str
-Faixa Etária Suspeito           str
-Grau instrução do suspeito      str
-Raça\cor do suspeito            str
-Faixa de renda do suspeito      str
-País de orígem do suspeito      str
-Nacionalidade do suspeito       str
-deficiencia_suspeito            str
-Relação Vítima x Suspeito       str
+Data da denúncia - Ano         int64
+Data da denúncia - Mês        object
+Data da denúncia - Dia         int64
+Tipo de violação              object
+Grupo vulnerável              object
+Espécie de violação           object
+Canal de atendimento          object
+Cenário da violação           object
+Motivação                     object
+Denúncia Emergencial          object
+Agravantes                    object
+agravantes_policiais          object
+UF                            object
+Município                     object
+Denunciante                   object
+Sexo da vítima                object
+Faixa Etária Vítima           object
+Grau instrução da vítima      object
+Raça\cor da vítima            object
+Faixa de renda da vítima      object
+País de orígem da vítima      object
+Nacionalidade da vítima       object
+deficiencia_vitima            object
+Sexo do suspeito              object
+Faixa Etária Suspeito         object
+Grau instrução do suspeito    object
+Raça\cor do suspeito          object
+Faixa de renda do suspeito    object
+País de orígem do suspeito    object
+Nacionalidade do suspeito     object
+deficiencia_suspeito          object
+Relação Vítima x Suspeito     object
 dtype: object
 
 --------------------------------------------------------------------------------
@@ -143,12 +143,12 @@ Strings com 'nan' ou 'none' como texto: 0
 --------------------------------------------------------------------------------
 [7] PRÉVIA DOS DADOS
 --------------------------------------------------------------------------------
-   Data da denúncia - Ano Data da denúncia - Mês  Data da denúncia - Dia  ... Nacionalidade do suspeito deficiencia_suspeito Relação Vítima x Suspeito
-0                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
-1                    2020                janeiro                       1  ...                       N/D                  N/D                 EX-ESPOSA
-2                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
-3                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
-4                    2020                janeiro                       1  ...             BRASILEIRO(A)                  NÃO                 EX-MARIDO
+   Data da denúncia - Ano Data da denúncia - Mês  ...  deficiencia_suspeito Relação Vítima x Suspeito
+0                    2020                janeiro  ...                   N/D                 EX-ESPOSA
+1                    2020                janeiro  ...                   N/D                 EX-ESPOSA
+2                    2020                janeiro  ...                   NÃO                 EX-MARIDO
+3                    2020                janeiro  ...                   NÃO                 EX-MARIDO
+4                    2020                janeiro  ...                   NÃO                 EX-MARIDO
 
 [5 rows x 32 columns]
 
@@ -320,9 +320,9 @@ Prévia dos dados limpos:
 ================================================================================
 FIM DA LIMPEZA DOS DADOS - CAMADA BRONZE
 ================================================================================
-DataFrame limpo salvo com sucesso em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\dados_feminicidio\2020_primeiro_semestre_limpo.csv
+DataFrame limpo salvo com sucesso em: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\dados_feminicidio\2020_primeiro_semestre_limpo.csv
 
 ================================================================================
 FIM DA PIPELINE BRONZE - TRATAMENTO DOS DADOS
 ================================================================================
-Output bronze salvo em: C:\Users\bia_a\OneDrive\Documentos\mestrado\Pesquisa_principal\bronze\dados_feminicidio\output_bronze.txt
+Output bronze salvo em: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\dados_feminicidio\output_bronze.txt

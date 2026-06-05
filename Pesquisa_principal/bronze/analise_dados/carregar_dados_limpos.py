@@ -9,7 +9,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 def carregar_dados_limpos(caminho_csv: str | Path) -> pd.DataFrame:
     """
     Carrega a base limpa gerada pela etapa de limpeza da camada bronze.
