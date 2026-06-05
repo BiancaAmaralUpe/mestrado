@@ -325,4 +325,5 @@ DataFrame limpo salvo com sucesso em: C:\Users\bia_a\mestrado\Pesquisa_principal
 ================================================================================
 FIM DA PIPELINE BRONZE - TRATAMENTO DOS DADOS
 ================================================================================
+
 Output bronze salvo em: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\dados_feminicidio\output_bronze.txt

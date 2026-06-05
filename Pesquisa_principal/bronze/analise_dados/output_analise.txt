@@ -3,6 +3,10 @@ INÍCIO DA ANÁLISE DOS DADOS
 ================================================================================
 
 ================================================================================
+ESTATÍSTICAS DESCRITIVAS
+================================================================================
+
+================================================================================
 ESTATÍSTICAS DESCRITIVAS - BASE FEMINICÍDIO
 ================================================================================
 
@@ -308,6 +312,10 @@ FIM DAS ESTATÍSTICAS DESCRITIVAS
 ================================================================================
 
 ================================================================================
+ANÁLISE EXPLORATÓRIA
+================================================================================
+
+================================================================================
 INÍCIO DA ANÁLISE EXPLORATÓRIA
 ================================================================================
 
@@ -470,6 +478,150 @@ FIM DA ANÁLISE EXPLORATÓRIA
 ================================================================================
 
 ================================================================================
+ANÁLISE DE FREQUÊNCIAS
+================================================================================
+
+================================================================================
+FREQUÊNCIA - TIPO_VIOLACAO
+================================================================================
+                                                    quantidade  percentual (%)
+tipo_violacao                                                                 
+2. VIOLÊNCIA PSICOLÓGICA                                153018           41.04
+1. VIOLÊNCIA FÍSICA                                      85980           23.06
+4. AGRESSÕES QUE VIOLAM A HONRA                          65669           17.61
+7. VIOLAÇÕES GERAIS                                      42224           11.32
+5. AGRESSÕES QUE VIOLAM O DIREITO A LIBERDADE            13703            3.67
+3. CRIMES CONTRA A VIDA                                   8770            2.35
+6. AGRESSÕES QUE VIOLAM A LIBERDADE CIVIL E POL...        3531            0.95
+
+================================================================================
+FREQUÊNCIA - ESPECIE_VIOLACAO
+================================================================================
+                                    quantidade  percentual (%)
+especie_violacao                                              
+CALÚNIA/INJÚRIA/DIFAMAÇÃO                65669           17.61
+AMEAÇA/COAÇÃO                            43029           11.54
+CONSTRANGIMENTO                          37757           10.13
+AGRESSÃO/VIAS DE FATO                    31474            8.44
+TORTURA PSÍQUICA                         24873            6.67
+EXPOSIÇÃO                                24659            6.61
+LESÃO CORPORAL                           22256            5.97
+MAUS TRATOS                              14787            3.97
+ASSÉDIO MORAL                            13614            3.65
+CRIMES CONTRA A SEGURANÇA PSÍQUICA       11866            3.18
+
+================================================================================
+FREQUÊNCIA - GRUPO_VULNERAVEL
+================================================================================
+                                                  quantidade  percentual (%)
+grupo_vulneravel                                                            
+2-Violência Doméstica e Familiar Contra a Mulher      264276           70.87
+1-Violência Contra a Mulher                           108619           29.13
+
+================================================================================
+FREQUÊNCIA - SEXO_VITIMA
+================================================================================
+             quantidade  percentual (%)
+sexo_vitima                            
+FEMININO         364195           97.67
+<NA>               7614            2.04
+LGBT               1086            0.29
+
+================================================================================
+FREQUÊNCIA - FAIXA_ETARIA_VITIMA
+================================================================================
+                           quantidade  percentual (%)
+faixa_etaria_vitima                                  
+35 a 39 anos                    55046           14.76
+40 a 44 anos                    53395           14.32
+30 a 34 anos                    51230           13.74
+25 a 29 anos                    46382           12.44
+20 a 24 anos                    43809           11.75
+45 a 49 anos                    38676           10.37
+50 a 54 anos                    28848            7.74
+55 a 59 anos                    23908            6.41
+info_vitima_nao_informada       16778             4.5
+18 a 19 anos                    14823            3.98
+
+================================================================================
+FREQUÊNCIA - SEXO_SUSPEITO
+================================================================================
+               quantidade  percentual (%)
+sexo_suspeito                            
+MASCULINO          320241           85.88
+FEMININO            37701           10.11
+<NA>                13857            3.72
+LGBT                 1096            0.29
+
+================================================================================
+FREQUÊNCIA - FAIXA_ETARIA_SUSPEITO
+================================================================================
+                             quantidade  percentual (%)
+faixa_etaria_suspeito                                  
+info_suspeito_nao_informada      233192           62.54
+35 a 39 anos                      21548            5.78
+30 a 34 anos                      20675            5.54
+40 a 44 anos                      20567            5.52
+25 a 29 anos                      18306            4.91
+45 a 49 anos                      14695            3.94
+20 a 24 anos                      11734            3.15
+50 a 54 anos                      11720            3.14
+55 a 59 anos                       7118            1.91
+60 a 64 anos                       5075            1.36
+
+================================================================================
+FREQUÊNCIA - RELACAO_VITIMA_SUSPEITO
+================================================================================
+                         quantidade  percentual (%)
+relacao_vitima_suspeito                            
+MARIDO/ ESPOSA                77613           20.81
+COMPANHEIRO(A)                71667           19.22
+EX-COMPANHEIRO(A)             35653            9.56
+EX-MARIDO                     34046            9.13
+<NA>                          23870             6.4
+VIZINHO(A)                    18920            5.07
+SEM RELAÇÃO                   18123            4.86
+EX- NAMORADO(A)               16235            4.35
+IRMÃO(Ã)                      14909             4.0
+FILHO(A)                      14853            3.98
+
+================================================================================
+FREQUÊNCIA - UF
+================================================================================
+    quantidade  percentual (%)
+uf                            
+RJ       72510           19.45
+SP       72392           19.41
+MG       34678             9.3
+BA       22876            6.13
+RS       20174            5.41
+GO       13392            3.59
+PE       13117            3.52
+PR       12990            3.48
+CE       11403            3.06
+SC       11050            2.96
+
+================================================================================
+FREQUÊNCIA - CENARIO_VIOLACAO
+================================================================================
+                                                    quantidade  percentual (%)
+cenario_violacao                                                              
+CASA ONDE RESIDE A VÍTIMA E O SUSPEITO                  177221           47.53
+CASA VÍTIMA                                             116069           31.13
+CASA DO SUSPEITO                                         21097            5.66
+AMBIENTE VIRTUAL (INTERNET/REDE SOCIAL/APLICATI...       16338            4.38
+VIA PÚBLICA                                              14079            3.78
+CASA DE FAMILIAR                                          5151            1.38
+LOCAL DE TRABALHO DA VÍTIMA                               4024            1.08
+OUTROS                                                    3955            1.06
+CASA DE TERCEIRO                                          2825            0.76
+<NA>                                                      2310            0.62
+
+================================================================================
+DEFINIÇÃO METODOLÓGICA
+================================================================================
+
+================================================================================
 CLASSIFICAÇÃO METODOLÓGICA DAS VARIÁVEIS
 ================================================================================
 
@@ -553,6 +705,52 @@ As variáveis abaixo foram classificadas para exclusão nas próximas etapas do 
 Observação: a exclusão será realizada na etapa de preparação dos dados, preservando a camada bronze como registro fiel dos dados tratados.
 
 ================================================================================
+ANÁLISE DE COMPLETUDE
+================================================================================
+
+================================================================================
+AGRAVANTES
+================================================================================
+Registros com informação: 257839 (69.15%)
+
+Distribuição:
+agravantes
+AGRESSOR CÔNJUGE, CONVIVENTE, ASCENDENTE, DESCENDENTE OU PARENTE    112933
+AGRESSOR CONHECIDO                                                   62565
+VIOLÊNCIA NO ÂMBITO DOMÉSTICO - COABITAÇÃO E HOSPITALIDADE           21676
+RESULTADO DAS AGRESSÕES SE PROLONGAM AO LONGO DO TEMPO               18929
+VÍTIMA IDOSA, CRIANÇA, DEFICIENTE OU MINORIA ÉTNICA OU SOCIAL         9361
+EM PÚBLICO - OUTRAS PESSOAS PRESENCIAM AS AGRESSÕES                   7914
+MOTIVO VIL, TORPE, INSIDIOSO, CRUEL, À TRAIÇÃO, OU POR DINHEIRO       7016
+AGRESSOR DESCONHECIDO                                                 4927
+RISCO DE MORTE                                                        4344
+DIVULGAÇÃO/EXPOSIÇÃO NA INTERNET                                      1548
+RELAÇÃO DE TRABALHO ENTRE A VÍTIMA E O AGRESSOR                       1486
+AUTOR EM POSIÇÃO DE ASCENÇÃO OU DE AUTORIDADE                         1390
+AGRESSOR POLICIAL/MILITAR                                             1144
+AGRESSOR POSSUI INFLUÊNCIA JUNTO ÀS AUTORIDADES LOCAIS                 959
+VÍTIMA EM SANGRAMENTO                                                  304
+CONVIVENTE                                                             251
+AGRESSOR CÔNJUGE                                                       249
+ASCENDENTE                                                             243
+DESCENDENTE OU PARENTE                                                 231
+VÍTIMA EM SITUAÇÃO DE RUA                                              139
+Name: count, dtype: Int64
+
+================================================================================
+AGRAVANTES POLICIAIS
+================================================================================
+Registros com informação: 1958 (0.53%)
+
+Distribuição:
+agravantes_policiais
+POLICIAL MILITAR               1379
+POLICIAL CIVIL                  333
+FORÇAS ARMADAS                  196
+POLICIAL FEDERAL                 43
+POLICIAL RODOVIÁRIO FEDERAL       7
+Name: count, dtype: Int64
 FIM DA ANÁLISE DOS DADOS
 ================================================================================
+
 Output da análise salvo em: C:\Users\bia_a\mestrado\Pesquisa_principal\bronze\analise_dados\output_analise.txt
