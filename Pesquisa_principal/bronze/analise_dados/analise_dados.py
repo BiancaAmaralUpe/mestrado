@@ -139,3 +139,41 @@ def remover_registros_com_ruido(
     print(f"Registros removidos: {qtd_antes - qtd_depois}")
 
     return dataframe
+
+def remover_variaveis_enviesamento(
+    dataframe: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Remove variáveis sensíveis com potencial de enviesamento.
+    """
+
+    dataframe = dataframe.copy()
+
+    colunas_remover = [
+        "raca_cor_suspeito",
+        "raca_cor_vitima",
+    ]
+
+    colunas_existentes = [
+        coluna for coluna in colunas_remover
+        if coluna in dataframe.columns
+    ]
+
+    print("\n" + "=" * 80)
+    print("REMOÇÃO DE VARIÁVEIS COM POTENCIAL DE ENVIESAMENTO")
+    print("=" * 80)
+
+    if not colunas_existentes:
+        print("Nenhuma variável sensível encontrada para remoção.")
+        return dataframe
+
+    dataframe = dataframe.drop(columns=colunas_existentes)
+
+    print("Colunas removidas:")
+    for coluna in colunas_existentes:
+        print(f"- {coluna}")
+
+    print(f"Quantidade de colunas após remoção: {dataframe.shape[1]}")
+
+    return dataframe
+    

@@ -7,7 +7,8 @@
 # - Exibir informações iniciais da base
 # ======================================================================================
 from Pesquisa_principal.bronze.analise_dados.analise_dados import remover_registros_com_ruido
-from Pesquisa_principal.constants import ARQUIVO_OUTPUT_BRONZE, ARQUIVO_OUTPUT_ANALISE_DADOS, ARQUIVO_CSV_FEMINICIDIO_LIMPO, ARQUIVO_CSV_FEMINICIDIO_ANALITICO
+
+from Pesquisa_principal.constants import ARQUIVO_OUTPUT_BRONZE, ARQUIVO_OUTPUT_ANALISE_DADOS, ARQUIVO_CSV_FEMINICIDIO_LIMPO, ARQUIVO_CSV_FEMINICIDIO_ANALITICO, ARQUIVO_OUTPUT_PREPARACAO_DADOS
 
 # pyrefly: ignore [missing-import]
 from Pesquisa_principal.bronze.base.utils import OutputTerminalEArquivo
@@ -42,6 +43,11 @@ from Pesquisa_principal.bronze.analise_dados.analise_dados import remover_coluna
 # pyrefly: ignore [missing-import]
 from Pesquisa_principal.bronze.analise_dados.relatorio_analitico import relatorio_preparacao_analitica
 
+# pyrefly: ignore [missing-import]
+from Pesquisa_principal.bronze.base.preparacao_dados import preparar_dados_modelagem
+
+# pyrefly: ignore [missing-import]
+from Pesquisa_principal.bronze.analise_dados.analise_dados import remover_variaveis_enviesamento
 
 def pipeline_bronze() -> None:
     """
@@ -90,6 +96,7 @@ def pipeline_bronze() -> None:
         print("=" * 80)
 
         dataframe_analise = remover_colunas_geograficas(dataframe_limpo)
+        dataframe_analise = remover_variaveis_enviesamento(dataframe_analise)
         dataframe_analise = remover_registros_com_ruido(dataframe_analise)
 
         salvar_dataframe_limpo(
@@ -146,3 +153,19 @@ def pipeline_bronze() -> None:
         print("=" * 80)
 
         print(f"\nOutput da análise salvo em: {ARQUIVO_OUTPUT_ANALISE_DADOS}")
+
+    with OutputTerminalEArquivo(ARQUIVO_OUTPUT_PREPARACAO_DADOS):
+        print("=" * 80)
+        print("INÍCIO DA PREPARAÇÃO DOS DADOS")
+        print("=" * 80)
+
+        preparar_dados_modelagem(
+            dataframe=dataframe_analise,
+            coluna_alvo="tipo_violacao",
+        )
+
+        print("\n" + "=" * 80)
+        print("FIM DA PREPARAÇÃO DOS DADOS")
+        print("=" * 80)
+
+        print(f"\nOutput da preparação salvo em: {ARQUIVO_OUTPUT_PREPARACAO_DADOS}")

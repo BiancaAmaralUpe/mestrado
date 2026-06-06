@@ -15,6 +15,14 @@ Colunas removidas:
 Quantidade de colunas após remoção: 26
 
 ================================================================================
+REMOÇÃO DE VARIÁVEIS COM POTENCIAL DE ENVIESAMENTO
+================================================================================
+Colunas removidas:
+- raca_cor_suspeito
+- raca_cor_vitima
+Quantidade de colunas após remoção: 24
+
+================================================================================
 REMOÇÃO DE REGISTROS COM RUÍDO
 ================================================================================
 - cenario_violacao: 2310 registros removidos por <NA>
@@ -65,7 +73,7 @@ COLUNAS REMOVIDAS:
 VALIDAÇÃO FINAL DA BASE
 --------------------------------------------------------------------------------
 Linhas finais: 334794
-Colunas finais: 26
+Colunas finais: 24
 
 Colunas restantes:
 - tipo_violacao
@@ -80,7 +88,6 @@ Colunas restantes:
 - sexo_vitima
 - faixa_etaria_vitima
 - grau_instrucao_vitima
-- raca_cor_vitima
 - faixa_renda_vitima
 - pais_origem_vitima
 - nacionalidade_vitima
@@ -88,7 +95,6 @@ Colunas restantes:
 - sexo_suspeito
 - faixa_etaria_suspeito
 - grau_instrucao_suspeito
-- raca_cor_suspeito
 - faixa_renda_suspeito
 - pais_origem_suspeito
 - nacionalidade_suspeito
@@ -100,13 +106,11 @@ motivacao                  139802
 agravantes                 101191
 agravantes_policiais       333117
 grau_instrucao_vitima      213559
-raca_cor_vitima            171097
 faixa_renda_vitima         263216
 pais_origem_vitima           4655
 nacionalidade_vitima       176557
 deficiencia_vitima         173701
 grau_instrucao_suspeito    260125
-raca_cor_suspeito          177760
 faixa_renda_suspeito       282465
 pais_origem_suspeito       138993
 nacionalidade_suspeito     186991
@@ -127,7 +131,7 @@ ESTATÍSTICAS DESCRITIVAS - BASE FEMINICÍDIO
 [1] DIMENSÕES DA BASE LIMPA
 --------------------------------------------------------------------------------
 Quantidade de linhas: 334794
-Quantidade de colunas: 26
+Quantidade de colunas: 24
 
 --------------------------------------------------------------------------------
 [2] TIPOS DE DADOS
@@ -144,7 +148,6 @@ denunciante                string[python]
 sexo_vitima                string[python]
 faixa_etaria_vitima        string[python]
 grau_instrucao_vitima      string[python]
-raca_cor_vitima            string[python]
 faixa_renda_vitima         string[python]
 pais_origem_vitima         string[python]
 nacionalidade_vitima       string[python]
@@ -152,7 +155,6 @@ deficiencia_vitima         string[python]
 sexo_suspeito              string[python]
 faixa_etaria_suspeito      string[python]
 grau_instrucao_suspeito    string[python]
-raca_cor_suspeito          string[python]
 faixa_renda_suspeito       string[python]
 pais_origem_suspeito       string[python]
 nacionalidade_suspeito     string[python]
@@ -171,24 +173,22 @@ grau_instrucao_suspeito     260125         77.697032
 grau_instrucao_vitima       213559         63.788180
 nacionalidade_suspeito      186991         55.852554
 deficiencia_suspeito        180497         53.912854
-raca_cor_suspeito           177760         53.095336
 nacionalidade_vitima        176557         52.736011
 deficiencia_vitima          173701         51.882949
-raca_cor_vitima             171097         51.105157
 motivacao                   139802         41.757618
 pais_origem_suspeito        138993         41.515977
 agravantes                  101191         30.224855
 pais_origem_vitima            4655          1.390407
-especie_violacao                 0          0.000000
 tipo_violacao                    0          0.000000
-grupo_vulneravel                 0          0.000000
-sexo_vitima                      0          0.000000
-denunciante                      0          0.000000
+especie_violacao                 0          0.000000
 cenario_violacao                 0          0.000000
 denuncia_emergencial             0          0.000000
-sexo_suspeito                    0          0.000000
+grupo_vulneravel                 0          0.000000
 faixa_etaria_vitima              0          0.000000
+denunciante                      0          0.000000
+sexo_vitima                      0          0.000000
 faixa_etaria_suspeito            0          0.000000
+sexo_suspeito                    0          0.000000
 relacao_vitima_suspeito          0          0.000000
 
 --------------------------------------------------------------------------------
@@ -203,10 +203,8 @@ Colunas com 30.0% ou mais de nulos:
 - grau_instrucao_vitima: 213559 nulos (63.79%)
 - nacionalidade_suspeito: 186991 nulos (55.85%)
 - deficiencia_suspeito: 180497 nulos (53.91%)
-- raca_cor_suspeito: 177760 nulos (53.10%)
 - nacionalidade_vitima: 176557 nulos (52.74%)
 - deficiencia_vitima: 173701 nulos (51.88%)
-- raca_cor_vitima: 171097 nulos (51.11%)
 - motivacao: 139802 nulos (41.76%)
 - pais_origem_suspeito: 138993 nulos (41.52%)
 - agravantes: 101191 nulos (30.22%)
@@ -229,15 +227,13 @@ grau_instrucao_suspeito    11
 faixa_etaria_vitima        10
 tipo_violacao               7
 agravantes_policiais        5
-raca_cor_suspeito           5
-raca_cor_vitima             5
-faixa_renda_vitima          5
 faixa_renda_suspeito        5
-denunciante                 4
+faixa_renda_vitima          5
 denuncia_emergencial        4
+denunciante                 4
 sexo_suspeito               3
-sexo_vitima                 2
 grupo_vulneravel            2
+sexo_vitima                 2
 deficiencia_vitima          2
 deficiencia_suspeito        2
 dtype: int64
@@ -652,10 +648,8 @@ Variáveis críticas (>= 30%):
 - grau_instrucao_vitima: 63.79%
 - nacionalidade_suspeito: 55.85%
 - deficiencia_suspeito: 53.91%
-- raca_cor_suspeito: 53.10%
 - nacionalidade_vitima: 52.74%
 - deficiencia_vitima: 51.88%
-- raca_cor_vitima: 51.11%
 - motivacao: 41.76%
 - pais_origem_suspeito: 41.52%
 - agravantes: 30.22%
