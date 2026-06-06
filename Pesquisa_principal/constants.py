@@ -40,3 +40,8 @@ ARQUIVO_CSV_FEMINICIDIO_ANALITICO = (
     "Pesquisa_principal/bronze/output/"
     "2020_primeiro_semestre_analitico.csv"
 )
+
+ARQUIVO_OUTPUT_PREPARACAO_DADOS = (
+    ROOT_DIR / "bronze" / "base" / "output_preparacao_dados.txt"
+)
+
