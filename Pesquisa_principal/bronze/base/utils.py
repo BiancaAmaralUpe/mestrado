@@ -8,8 +8,6 @@
 
 import sys
 from pathlib import Path
-
-
 class OutputTerminalEArquivo:
     """
     Classe auxiliar para duplicar o output:

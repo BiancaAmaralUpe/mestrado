@@ -174,7 +174,6 @@ def estatistica_info_nao_informada(dataframe: pd.DataFrame) -> None:
     categorias_investigar = {
         "faixa_etaria_suspeito": "info_suspeito_nao_informada",
         "faixa_etaria_vitima": "info_vitima_nao_informada",
-        "municipio": "municipio_nao_informado",
     }
 
     total_linhas = len(dataframe)
@@ -196,7 +195,7 @@ def gerar_estatisticas_descritivas(dataframe: pd.DataFrame) -> None:
     """
 
     imprimir_titulo("ESTATÍSTICAS DESCRITIVAS - BASE FEMINICÍDIO")
-
+    
     estatistica_dimensoes(dataframe)
     estatistica_tipos_dados(dataframe)
     estatistica_valores_nulos(dataframe)

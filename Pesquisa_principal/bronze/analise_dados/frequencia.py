@@ -9,7 +9,6 @@
 
 import pandas as pd
 
-
 def analisar_frequencia_coluna(
     dataframe: pd.DataFrame,
     coluna: str,
@@ -18,6 +17,10 @@ def analisar_frequencia_coluna(
     """
     Exibe as categorias mais frequentes de uma coluna.
     """
+
+    if coluna not in dataframe.columns:
+        print(f"[AVISO] Coluna deletada: {coluna}")
+        return
 
     print("\n" + "=" * 80)
     print(f"FREQUÊNCIA - {coluna.upper()}")
@@ -39,7 +42,6 @@ def analisar_frequencia_coluna(
 
     print(resultado.head(top_n))
 
-
 def executar_analise_frequencias(
     dataframe: pd.DataFrame,
 ) -> None:
@@ -49,15 +51,15 @@ def executar_analise_frequencias(
 
     colunas_analisar = [
         "tipo_violacao",
-        "especie_violacao",
         "grupo_vulneravel",
+        "especie_violacao",
+        "cenario_violacao",
+        "denuncia_emergencial",
         "sexo_vitima",
         "faixa_etaria_vitima",
         "sexo_suspeito",
         "faixa_etaria_suspeito",
         "relacao_vitima_suspeito",
-        "uf",
-        "cenario_violacao",
     ]
 
     for coluna in colunas_analisar:

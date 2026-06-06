@@ -8,6 +8,10 @@
 # ======================================================================================
 
 import pandas as pd
+pd.set_option("display.max_columns", None)
+pd.set_option("display.max_rows", None)
+pd.set_option("display.width", 1000)
+pd.set_option("display.max_colwidth", None)
 
 def imprimir_secao(titulo: str) -> None:
     """
@@ -18,7 +22,6 @@ def imprimir_secao(titulo: str) -> None:
     print(titulo)
     print("=" * 80)
 
-
 def gerar_tabela_cruzada(
     dataframe: pd.DataFrame,
     coluna_linha: str,
@@ -27,29 +30,14 @@ def gerar_tabela_cruzada(
 ) -> None:
     """
     Gera uma tabela cruzada entre duas variáveis categóricas.
-
-    Parâmetros
-    ----------
-    dataframe : pd.DataFrame
-        Base analisada.
-
-    coluna_linha : str
-        Coluna que será usada nas linhas da tabela.
-
-    coluna_coluna : str
-        Coluna que será usada nas colunas da tabela.
-
-    normalizar : bool
-        Se True, exibe percentuais por linha.
-        Se False, exibe contagens absolutas.
     """
 
     if coluna_linha not in dataframe.columns:
-        print(f"[AVISO] Coluna não encontrada: {coluna_linha}")
+        print(f"[AVISO] Coluna deletada: {coluna_linha}")
         return
 
     if coluna_coluna not in dataframe.columns:
-        print(f"[AVISO] Coluna não encontrada: {coluna_coluna}")
+        print(f"[AVISO] Coluna deletada: {coluna_coluna}")
         return
 
     print("\n" + "-" * 80)
@@ -64,7 +52,8 @@ def gerar_tabela_cruzada(
             dropna=False,
         ) * 100
 
-        print(tabela.round(2))
+        print(tabela.round(2).to_string())
+
     else:
         tabela = pd.crosstab(
             dataframe[coluna_linha],
@@ -72,8 +61,7 @@ def gerar_tabela_cruzada(
             dropna=False,
         )
 
-        print(tabela)
-
+        print(tabela.to_string())
 
 def analisar_tipo_violacao_por_denuncia_emergencial(dataframe: pd.DataFrame) -> None:
     """
@@ -205,7 +193,6 @@ def executar_analise_exploratoria(dataframe: pd.DataFrame) -> None:
     analisar_tipo_violacao_por_relacao_vitima_suspeito(dataframe)
     analisar_tipo_violacao_por_cenario(dataframe)
     analisar_denuncia_emergencial_por_faixa_etaria_vitima(dataframe)
-    analisar_uf_por_tipo_violacao(dataframe)
     analisar_faixa_etaria_suspeito_por_tipo_violacao(dataframe)
     analisar_info_suspeito_nao_informada(dataframe)
 

@@ -6,7 +6,8 @@
 # - Transformar XLSX em CSV
 # - Exibir informações iniciais da base
 # ======================================================================================
-from Pesquisa_principal.constants import ARQUIVO_OUTPUT_BRONZE, ARQUIVO_OUTPUT_ANALISE_DADOS, ARQUIVO_CSV_FEMINICIDIO_LIMPO
+from Pesquisa_principal.bronze.analise_dados.analise_dados import remover_registros_com_ruido
+from Pesquisa_principal.constants import ARQUIVO_OUTPUT_BRONZE, ARQUIVO_OUTPUT_ANALISE_DADOS, ARQUIVO_CSV_FEMINICIDIO_LIMPO, ARQUIVO_CSV_FEMINICIDIO_ANALITICO
 
 # pyrefly: ignore [missing-import]
 from Pesquisa_principal.bronze.base.utils import OutputTerminalEArquivo
@@ -27,19 +28,20 @@ from Pesquisa_principal.bronze.analise_dados.estatisticas_descritivas import ger
 from Pesquisa_principal.bronze.analise_dados.analise_exploratoria import executar_analise_exploratoria
 
 # pyrefly: ignore [missing-import]
-from Pesquisa_principal.bronze.analise_dados.estatisticas_descritivas import gerar_estatisticas_descritivas
-
-# pyrefly: ignore [missing-import]
-from Pesquisa_principal.bronze.analise_dados.analise_exploratoria import executar_analise_exploratoria
-
-# pyrefly: ignore [missing-import]
 from Pesquisa_principal.bronze.analise_dados.frequencia import executar_analise_frequencias
 
 # pyrefly: ignore [missing-import]
 from Pesquisa_principal.bronze.analise_dados.definir_metodologia import definir_metodologia_analise
 
-# pyrefly: ignore [missing-import]
+# pyrefly: ignore [missing-import]  
 from Pesquisa_principal.bronze.analise_dados.analise_completude import executar_analise_completude
+
+# pyrefly: ignore [missing-import]
+from Pesquisa_principal.bronze.analise_dados.analise_dados import remover_colunas_geograficas, remover_registros_com_ruido
+
+# pyrefly: ignore [missing-import]
+from Pesquisa_principal.bronze.analise_dados.relatorio_analitico import relatorio_preparacao_analitica
+
 
 def pipeline_bronze() -> None:
     """
@@ -81,41 +83,64 @@ def pipeline_bronze() -> None:
     # ==========================================================================
     # ANÁLISE DOS DADOS
     # ==========================================================================
-
+    
     with OutputTerminalEArquivo(ARQUIVO_OUTPUT_ANALISE_DADOS):
         print("=" * 80)
         print("INÍCIO DA ANÁLISE DOS DADOS")
         print("=" * 80)
 
+        dataframe_analise = remover_colunas_geograficas(dataframe_limpo)
+        dataframe_analise = remover_registros_com_ruido(dataframe_analise)
+
+        salvar_dataframe_limpo(
+            dataframe=dataframe_analise,
+            caminho_saida=ARQUIVO_CSV_FEMINICIDIO_ANALITICO,
+        )
+
+        relatorio_preparacao_analitica(
+            dataframe_original=dataframe_limpo,
+            dataframe_final=dataframe_analise,
+            colunas_removidas=[
+            "uf",
+            "municipio",
+            "data_denuncia_ano",
+            "data_denuncia_mes",
+            "data_denuncia_dia",
+            "canal_atendimento",
+            "denuncia_emergencial",
+            ],
+        )
+
         print("\n" + "=" * 80)
         print("ESTATÍSTICAS DESCRITIVAS")
         print("=" * 80)
 
-        gerar_estatisticas_descritivas(dataframe_limpo)
+        gerar_estatisticas_descritivas(dataframe_analise)
 
         print("\n" + "=" * 80)
         print("ANÁLISE EXPLORATÓRIA")
         print("=" * 80)
 
-        executar_analise_exploratoria(dataframe_limpo)
+        executar_analise_exploratoria(dataframe_analise)
 
         print("\n" + "=" * 80)
         print("ANÁLISE DE FREQUÊNCIAS")
         print("=" * 80)
 
-        executar_analise_frequencias(dataframe_limpo)
+        executar_analise_frequencias(dataframe_analise)
 
         print("\n" + "=" * 80)
         print("DEFINIÇÃO METODOLÓGICA")
         print("=" * 80)
 
-        definir_metodologia_analise(dataframe_limpo)
+        definir_metodologia_analise(dataframe_analise)
 
         print("\n" + "=" * 80)
         print("ANÁLISE DE COMPLETUDE")
         print("=" * 80)
-        executar_analise_completude(dataframe_limpo)
-        
+
+        executar_analise_completude(dataframe_analise)
+
         print("\n" + "=" * 80)
         print("FIM DA ANÁLISE DOS DADOS")
         print("=" * 80)

@@ -8,7 +8,6 @@
 
 import pandas as pd
 
-
 def imprimir_titulo(titulo: str) -> None:
     """
     Imprime um título principal formatado.

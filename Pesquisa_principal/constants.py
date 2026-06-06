@@ -35,3 +35,8 @@ ARQUIVO_OUTPUT_BRONZE = (
 ARQUIVO_OUTPUT_ANALISE_DADOS = (
     ANALISE_DADOS_DIR / "output_analise.txt"
 )
+
+ARQUIVO_CSV_FEMINICIDIO_ANALITICO = (
+    "Pesquisa_principal/bronze/output/"
+    "2020_primeiro_semestre_analitico.csv"
+)
