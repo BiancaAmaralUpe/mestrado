@@ -1,0 +1,37 @@
+[33m3793ffa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m50de65e[m HEAD@{1}: reset: moving to HEAD
+[33m50de65e[m HEAD@{2}: commit: update
+[33m048a769[m HEAD@{3}: commit: add commit
+[33ma8bca8c[m HEAD@{4}: commit: Atualiza estrutura da pesquisa sem base CSV grande
+[33m51bcc7f[m HEAD@{5}: reset: moving to origin/main
+[33md1a3723[m[33m ([m[1;32mbackup-antes-de-limpar-historico[m[33m)[m HEAD@{6}: commit: Remove arquivo grande de dados do versionamento
+[33m306d1e3[m HEAD@{7}: commit: update dos gitignore
+[33mc5f751e[m HEAD@{8}: commit: dados de feminicidio
+[33m5dd7079[m HEAD@{9}: commit: pipeline da camada bronz de dados
+[33m494a57e[m HEAD@{10}: commit: update
+[33m1ea45ef[m HEAD@{11}: commit: variaveis que são necessarias para rodar a pipeline
+[33m4a4ca6f[m HEAD@{12}: commit: subida dos metodos da base da camada bronze de dados. Dados iniciais
+[33m2595df3[m HEAD@{13}: commit: modificacao no nome dos metodos
+[33m51bcc7f[m HEAD@{14}: commit: Update da atividade de random_florest
+[33m024c763[m HEAD@{15}: commit: update
+[33m5fdc751[m HEAD@{16}: commit: Estruturacao da camada de sustentacao da pesquisa principal
+[33m40d05ce[m HEAD@{17}: commit: update da atividade pratica mnist
+[33m2847704[m HEAD@{18}: commit: update da atividade pratica de xor
+[33mff7471b[m HEAD@{19}: commit: update da camada da atividade pratica da mlp
+[33m099c222[m HEAD@{20}: commit: Subida da primeira parte do exercicio da mlp
+[33me2fe12c[m HEAD@{21}: commit: subida da minha caixa de ferramentas
+[33md9805b1[m HEAD@{22}: commit: subida dos hiperparametros
+[33m01c8d47[m HEAD@{23}: commit: subida do orquestrador
+[33m02371cb[m HEAD@{24}: commit: delete de arquivos desnecessarios
+[33mc4a75fe[m HEAD@{25}: commit: update clusters
+[33mdf7b577[m HEAD@{26}: commit: update das arvores
+[33m29ab228[m HEAD@{27}: commit: subida do init
+[33m1570534[m HEAD@{28}: commit: preparação dos dados e os dados
+[33m74cec4e[m HEAD@{29}: commit: update dos metodos que carregam , limpam e normaliza o dados
+[33m2c03801[m HEAD@{30}: commit: gitignore para não subir lixo para o github
+[33m419a682[m HEAD@{31}: commit: update da __main__ que chama todas as arvores
+[33m4469b48[m HEAD@{32}: commit: Esqueleto das atividade de inteligencia computacional
+[33md23cccb[m HEAD@{33}: commit: Modificacao nos metodos de treino e testes, ajuste nos metodos para serem balanceadas
+[33m036321a[m HEAD@{34}: commit: Update nas modificações do modelo
+[33mc1a12ae[m HEAD@{35}: Branch: renamed refs/heads/main to refs/heads/main
+[33mc1a12ae[m HEAD@{37}: commit (initial): Update de redes neurais perceptrons
